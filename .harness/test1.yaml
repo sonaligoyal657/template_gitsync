@@ -37,6 +37,12 @@ pipeline:
                   template:
                     templateRef: step_template_2
                     versionLabel: v6
+              - step:
+                  name: cfgv
+                  identifier: cfgv
+                  template:
+                    templateRef: step_template_2
+                    versionLabel: v6
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
