@@ -14,4 +14,6 @@ template:
         type: ResourceName
         spec:
           resourceNames:
-            - test
+            - resource1
+            - resource2
+  
