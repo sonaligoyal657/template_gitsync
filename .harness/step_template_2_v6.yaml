@@ -1,0 +1,17 @@
+template:
+  name: step_template_2
+  identifier: step_template_2
+  versionLabel: v6
+  type: Step
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    timeout: 10m
+    type: K8sDelete
+    spec:
+      deleteResources:
+        type: ResourceName
+        spec:
+          resourceNames:
+            - test
