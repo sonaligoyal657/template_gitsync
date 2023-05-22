@@ -31,6 +31,12 @@ pipeline:
                   spec:
                     skipDryRun: false
                     pruningEnabled: false
+              - step:
+                  name: main_test_branch_template1
+                  identifier: main_test_branch_template1
+                  template:
+                    templateRef: step_template_2
+                    versionLabel: v6
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
