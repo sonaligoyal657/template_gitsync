@@ -1,0 +1,33 @@
+template:
+  name: remotepipeline_template_main-test
+  identifier: remotepipeline_template_maintest
+  versionLabel: vgf
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: fd
+          identifier: fd
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      onDelegate: true
+                      source:
+                        type: Inline
+                        spec:
+                          script: fd
+                      environmentVariables: []
+                      outputVariables: []
+                    timeout: 10m
+          tags: {}
