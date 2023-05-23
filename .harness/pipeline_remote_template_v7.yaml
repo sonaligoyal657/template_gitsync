@@ -1,0 +1,52 @@
+template:
+  name: pipeline_remote_template
+  identifier: pipeline_remote_template
+  versionLabel: v7
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: test
+          identifier: test
+          description: ""
+          type: Approval
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: CustomApproval
+                    name: custom_approval1
+                    identifier: custom_approval1
+                    timeout: 1d
+                    spec:
+                      shell: Bash
+                      retryInterval: 10s
+                      scriptTimeout: 10m
+                      source:
+                        type: Inline
+                        spec:
+                          script: rfedws
+                      environmentVariables: []
+                      approvalCriteria:
+                        type: KeyValues
+                        spec:
+                          matchAnyCondition: false
+                          conditions:
+                            - key: test
+                              operator: equals
+                              value: abc
+                      rejectionCriteria:
+                        type: KeyValues
+                        spec:
+                          matchAnyCondition: false
+                          conditions: []
+                      delegateSelectors: []
+                      onDelegate: true
+                      outputVariables:
+                        - name: test
+                          type: String
+                          value: abc
+          tags: {}
