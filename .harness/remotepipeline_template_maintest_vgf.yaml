@@ -72,3 +72,20 @@ template:
                   - AllErrors
                 action:
                   type: StageRollback
+      - stage:
+          name: stageB
+          identifier: stageB
+          template:
+            templateRef: account.stgtempgit
+            versionLabel: "1"
+            gitBranch: master
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  infrastructureDefinitions: <+input>
