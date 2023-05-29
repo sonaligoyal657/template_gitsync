@@ -91,4 +91,11 @@ pipeline:
                     templateRef: account.AccountStepRemoteOct6
                     versionLabel: v1
                     gitBranch: main
+              - step:
+                  name: gfd
+                  identifier: gfd
+                  template:
+                    templateRef: account.AccountStepRemoteOct6
+                    versionLabel: v1
+                    gitBranch: a-main-patch
         tags: {}
