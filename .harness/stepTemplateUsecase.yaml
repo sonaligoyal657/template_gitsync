@@ -70,3 +70,18 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+    - stage:
+        name: stg2
+        identifier: stg2
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: steptemplatefromdifferentbranch
+                  identifier: steptemplatefromdifferentbranch
+                  template:
+                    templateRef: account.AccountStepRemoteOct6
+                    versionLabel: v1
+        tags: {}
