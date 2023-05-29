@@ -46,3 +46,21 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+    - stage:
+        name: cdx
+        identifier: cdx
+        template:
+          templateRef: stage_template_1
+          versionLabel: v2
+          gitBranch: main_test
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
