@@ -56,3 +56,76 @@ template:
                   - AllErrors
                 action:
                   type: StageRollback
+      - stage:
+          name: samerepodifferentbranch
+          identifier: samerepodifferentbranch
+          template:
+            templateRef: stage_template_1
+            versionLabel: v2
+            gitBranch: main_test
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+      - stage:
+          name: differentrepo_branchnamesame
+          identifier: differentrepo_branchnamesame
+          template:
+            templateRef: account.Stage_Template
+            versionLabel: v1
+            gitBranch: main
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+              variables:
+                - name: avc
+                  type: String
+                  value: <+input>
+      - stage:
+          name: differentrepo_differentbranch
+          identifier: differentrepo_differentbranch
+          template:
+            templateRef: account.stgtempgit
+            versionLabel: "1"
+            gitBranch: master
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  infrastructureDefinitions: <+input>
+      - stage:
+          name: d
+          identifier: d
+          description: ""
+          type: Approval
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: differentrepo_differentbranch
+                    identifier: differentrepo_differentbranch
+                    template:
+                      templateRef: account.adsfasdf
+                      versionLabel: sdfadsasfa
+                      gitBranch: main2-patch-patch-11111
+          tags: {}
