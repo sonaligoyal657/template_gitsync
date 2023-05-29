@@ -34,6 +34,13 @@ template:
                     spec:
                       skipDryRun: false
                       pruningEnabled: false
+                - step:
+                    name: stepTemplate_fromdifferentbranch
+                    identifier: stepTemplate_fromdifferentbranch
+                    template:
+                      templateRef: step_template_2
+                      versionLabel: v6
+                      gitBranch: main_test
               rollbackSteps:
                 - step:
                     name: Rollback Rollout Deployment
