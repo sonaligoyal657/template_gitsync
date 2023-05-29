@@ -64,3 +64,38 @@ pipeline:
                 environmentInputs: <+input>
                 serviceOverrideInputs: <+input>
                 infrastructureDefinitions: <+input>
+    - stage:
+        name: differentrepodifferentbrsnch
+        identifier: differentrepodifferentbrsnch
+        template:
+          templateRef: account.stgtempgit
+          versionLabel: "1"
+          gitBranch: fardeen
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                infrastructureDefinitions: <+input>
+    - stage:
+        name: differentrepo_branchnamesame
+        identifier: differentrepo_branchnamesame
+        template:
+          templateRef: account.Stage_Template_1
+          versionLabel: v1
+          gitBranch: main
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
