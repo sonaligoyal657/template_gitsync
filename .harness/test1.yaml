@@ -99,3 +99,19 @@ pipeline:
                 environmentInputs: <+input>
                 serviceOverrideInputs: <+input>
                 infrastructureDefinitions: <+input>
+    - stage:
+        name: sdr
+        identifier: sdr
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: fgh
+                  identifier: fgh
+                  template:
+                    templateRef: account.AccountStepRemoteOct6
+                    versionLabel: v1
+                    gitBranch: main
+        tags: {}
