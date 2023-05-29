@@ -114,4 +114,11 @@ pipeline:
                     templateRef: account.AccountStepRemoteOct6
                     versionLabel: v1
                     gitBranch: main
+              - step:
+                  name: gh
+                  identifier: gh
+                  template:
+                    templateRef: org.RemoteOrgStepSept27
+                    versionLabel: v1
+                    gitBranch: main2-patch3
         tags: {}
