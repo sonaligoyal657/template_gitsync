@@ -47,8 +47,8 @@ pipeline:
               action:
                 type: StageRollback
     - stage:
-        name: stg2
-        identifier: stg2
+        name: samerepo_differentbranch
+        identifier: samerepo_differentbranch
         template:
           templateRef: stage_template_1
           versionLabel: v2
