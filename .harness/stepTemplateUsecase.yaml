@@ -99,3 +99,21 @@ pipeline:
                 environmentInputs: <+input>
                 serviceOverrideInputs: <+input>
                 infrastructureDefinitions: <+input>
+    - stage:
+        name: stge_fifferenntbranch
+        identifier: stge_fifferenntbranch
+        template:
+          templateRef: stage_template_1
+          versionLabel: v2
+          gitBranch: main_test
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
