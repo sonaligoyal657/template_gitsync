@@ -81,3 +81,21 @@ pipeline:
                     versionLabel: v1
                     gitBranch: a-main-patch
         tags: {}
+    - stage:
+        name: stg67890
+        identifier: stg67890
+        template:
+          templateRef: stage_template_1
+          versionLabel: v2
+          gitBranch: main_test
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
