@@ -129,3 +129,21 @@ template:
                       versionLabel: sdfadsasfa
                       gitBranch: main2-patch-patch-11111
           tags: {}
+      - stage:
+          name: templatemain_test
+          identifier: templatemain_test
+          template:
+            templateRef: stage_template_1
+            versionLabel: v2
+            gitBranch: main_test
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
