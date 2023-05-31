@@ -1,0 +1,34 @@
+template:
+  name: stageTemplate1
+  identifier: stageTemplate1
+  versionLabel: v2
+  type: Stage
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Approval
+    spec:
+      execution:
+        steps:
+          - step:
+              name: step9
+              identifier: step9
+              type: JiraApproval
+              timeout: 1d
+              spec:
+                approvalCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions:
+                      - key: Status
+                        operator: equals
+                        value: to do
+                rejectionCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions: []
+                connectorRef: <+input>
+                issueKey: tji-9087
