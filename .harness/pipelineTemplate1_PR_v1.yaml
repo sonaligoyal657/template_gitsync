@@ -1,0 +1,29 @@
+template:
+  name: pipelineTemplate1_PR
+  identifier: pipelineTemplate1_PR
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          description: ""
+          type: Approval
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: step1
+                    identifier: step1
+                    type: JiraCreate
+                    timeout: 5m
+                    spec:
+                      fields: []
+                      connectorRef: <+input>
+                      projectKey: <+input>
+                      issueType: <+input>
+          tags: {}
