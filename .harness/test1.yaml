@@ -122,3 +122,21 @@ pipeline:
                     versionLabel: v1
                     gitBranch: main2-patch3
         tags: {}
+    - stage:
+        name: stg8900
+        identifier: stg8900
+        template:
+          templateRef: stage_template_1
+          versionLabel: v2
+          gitBranch: main_test
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
