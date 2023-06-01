@@ -50,3 +50,20 @@ template:
                           type: String
                           value: cdx
           tags: {}
+      - stage:
+          name: cfd
+          identifier: cfd
+          template:
+            templateRef: stagetestmain
+            versionLabel: g7
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
