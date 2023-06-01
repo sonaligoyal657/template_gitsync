@@ -33,3 +33,20 @@ template:
                       isAutoRejectEnabled: false
                       approverInputs: []
           tags: {}
+      - stage:
+          name: test12
+          identifier: test12
+          template:
+            templateRef: deploystgtemplate
+            versionLabel: v1
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
