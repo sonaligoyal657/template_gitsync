@@ -130,3 +130,21 @@ template:
                   environmentInputs: <+input>
                   serviceOverrideInputs: <+input>
                   infrastructureDefinitions: <+input>
+      - stage:
+          name: gtfrde
+          identifier: gtfrde
+          template:
+            templateRef: stagetestmain
+            versionLabel: g7
+            gitBranch: main
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
