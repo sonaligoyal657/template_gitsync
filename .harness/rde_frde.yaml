@@ -1,0 +1,46 @@
+template:
+  name: rde
+  identifier: rde
+  versionLabel: frde
+  type: Stage
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Approval
+    spec:
+      execution:
+        steps:
+          - step:
+              type: CustomApproval
+              name: test2
+              identifier: test2
+              timeout: 1d
+              spec:
+                shell: Bash
+                retryInterval: 10s
+                scriptTimeout: 10m
+                source:
+                  type: Inline
+                  spec:
+                    script: fvcd
+                environmentVariables: []
+                approvalCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions:
+                      - key: fcd
+                        operator: equals
+                        value: f
+                rejectionCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions: []
+                delegateSelectors: []
+                onDelegate: true
+                outputVariables:
+                  - name: fc
+                    type: String
+                    value: fc
