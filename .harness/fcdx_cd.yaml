@@ -50,3 +50,26 @@ template:
                           type: String
                           value: d
           tags: {}
+      - stage:
+          name: fdesw
+          identifier: fdesw
+          template:
+            templateRef: stage_approval
+            versionLabel: fcdx
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: fds
+                        type: CustomApproval
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
+                          outputVariables:
+                            - name: frd
+                              type: String
+                              value: <+input>
