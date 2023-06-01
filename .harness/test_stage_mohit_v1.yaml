@@ -12,7 +12,7 @@ template:
       execution:
         steps:
           - step:
-              name: test
+              name: test123
               identifier: test
               type: HarnessApproval
               timeout: 1d
