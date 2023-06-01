@@ -31,6 +31,13 @@ pipeline:
                   spec:
                     skipDryRun: false
                     pruningEnabled: false
+              - step:
+                  name: step_main
+                  identifier: step_main
+                  template:
+                    templateRef: step_template_2
+                    versionLabel: v6
+                    gitBranch: main
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
