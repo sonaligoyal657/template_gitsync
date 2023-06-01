@@ -1,0 +1,46 @@
+template:
+  name: stage_approval
+  identifier: stage_approval
+  versionLabel: fcdx
+  type: Stage
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Approval
+    spec:
+      execution:
+        steps:
+          - step:
+              type: CustomApproval
+              name: fds
+              identifier: fds
+              timeout: 1d
+              spec:
+                shell: Bash
+                retryInterval: 10s
+                scriptTimeout: 10m
+                source:
+                  type: Inline
+                  spec:
+                    script: <+input>
+                environmentVariables: []
+                approvalCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions:
+                      - key: f
+                        operator: equals
+                        value: gftd
+                rejectionCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions: []
+                delegateSelectors: []
+                onDelegate: true
+                outputVariables:
+                  - name: frd
+                    type: String
+                    value: <+input>
