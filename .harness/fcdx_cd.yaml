@@ -73,3 +73,19 @@ template:
                             - name: frd
                               type: String
                               value: <+input>
+      - stage:
+          name: cdxs
+          identifier: cdxs
+          template:
+            templateRef: stageTemplate1
+            versionLabel: v2
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: step9
+                        type: JiraApproval
+                        spec:
+                          connectorRef: <+input>
