@@ -1,0 +1,52 @@
+template:
+  name: fcdx
+  identifier: fcdx
+  versionLabel: cd
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: fd
+          identifier: fd
+          description: ""
+          type: Approval
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: CustomApproval
+                    name: fdes
+                    identifier: fdes
+                    timeout: 1d
+                    spec:
+                      shell: Bash
+                      retryInterval: 10s
+                      scriptTimeout: 10m
+                      source:
+                        type: Inline
+                        spec:
+                          script: <+input>
+                      environmentVariables: []
+                      approvalCriteria:
+                        type: KeyValues
+                        spec:
+                          matchAnyCondition: false
+                          conditions:
+                            - key: d
+                              operator: equals
+                              value: d
+                      rejectionCriteria:
+                        type: KeyValues
+                        spec:
+                          matchAnyCondition: false
+                          conditions: []
+                      delegateSelectors: []
+                      onDelegate: true
+                      outputVariables:
+                        - name: des
+                          type: String
+                          value: d
+          tags: {}
