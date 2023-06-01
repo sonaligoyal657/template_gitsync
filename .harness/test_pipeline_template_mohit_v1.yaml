@@ -1,0 +1,35 @@
+template:
+  name: test pipeline template mohit
+  identifier: test_pipeline_template_mohit
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: test
+          identifier: test
+          description: ""
+          type: Approval
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: test
+                    identifier: test
+                    type: HarnessApproval
+                    timeout: 1d
+                    spec:
+                      approvalMessage: |-
+                        Please review the following information
+                        and approve the pipeline progression
+                      includePipelineExecutionHistory: true
+                      approvers:
+                        minimumCount: 1
+                        disallowPipelineExecutor: false
+                        userGroups: <+input>
+                      isAutoRejectEnabled: false
+                      approverInputs: []
+          tags: {}
