@@ -1,0 +1,28 @@
+template:
+  name: pip1
+  identifier: pip1
+  versionLabel: d
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1_samerepo_differentbranch
+          identifier: stg1_samerepo_differentbranch
+          template:
+            templateRef: stage_template_1
+            versionLabel: v2
+            gitBranch: main_test
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
