@@ -1,0 +1,52 @@
+template:
+  name: stg1
+  identifier: stg1
+  versionLabel: s
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: cdxs
+          identifier: cdxs
+          description: ""
+          type: Approval
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: CustomApproval
+                    name: cdxs
+                    identifier: cdxs
+                    timeout: 1d
+                    spec:
+                      shell: Bash
+                      retryInterval: 10s
+                      scriptTimeout: 10m
+                      source:
+                        type: Inline
+                        spec:
+                          script: fcdxs
+                      environmentVariables: []
+                      approvalCriteria:
+                        type: KeyValues
+                        spec:
+                          matchAnyCondition: false
+                          conditions:
+                            - key: cfdx
+                              operator: equals
+                              value: cfdx
+                      rejectionCriteria:
+                        type: KeyValues
+                        spec:
+                          matchAnyCondition: false
+                          conditions: []
+                      delegateSelectors: []
+                      onDelegate: true
+                      outputVariables:
+                        - name: fcdx
+                          type: String
+                          value: cdx
+          tags: {}
