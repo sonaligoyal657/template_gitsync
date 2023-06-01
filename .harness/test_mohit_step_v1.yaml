@@ -1,0 +1,16 @@
+template:
+  name: test mohit step
+  identifier: test_mohit_step
+  versionLabel: v1
+  type: Step
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Email
+    timeout: 10m
+    spec:
+      to: <+input>
+      cc: <+input>
+      subject: <+input>
+      body: <+input>
