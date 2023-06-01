@@ -27,20 +27,3 @@ template:
                       projectKey: <+input>
                       issueType: <+input>
           tags: {}
-      - stage:
-          name: templ7
-          identifier: templ7
-          template:
-            templateRef: stageTemplate1
-            versionLabel: v2
-            gitBranch: main
-            templateInputs:
-              type: Approval
-              spec:
-                execution:
-                  steps:
-                    - step:
-                        identifier: step9
-                        type: JiraApproval
-                        spec:
-                          connectorRef: <+input>
