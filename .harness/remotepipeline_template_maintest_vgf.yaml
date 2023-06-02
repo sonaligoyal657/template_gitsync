@@ -165,3 +165,20 @@ template:
                         type: JiraApproval
                         spec:
                           connectorRef: <+input>
+      - stage:
+          name: samerepo_samebranch_defaultBehaviour
+          identifier: samerepo_samebranch_defaultBehaviour
+          template:
+            templateRef: stage_template_1
+            versionLabel: v2
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
