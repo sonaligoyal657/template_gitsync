@@ -148,3 +148,20 @@ template:
                   environmentInputs: <+input>
                   serviceOverrideInputs: <+input>
                   infrastructureDefinitions: <+input>
+      - stage:
+          name: stg_samerepo_differentbranch
+          identifier: stg_samerepo_differentbranch
+          template:
+            templateRef: stageTemplate1
+            versionLabel: v2
+            gitBranch: main
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: step9
+                        type: JiraApproval
+                        spec:
+                          connectorRef: <+input>
