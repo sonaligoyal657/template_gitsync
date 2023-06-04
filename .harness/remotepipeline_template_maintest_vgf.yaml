@@ -182,3 +182,14 @@ template:
                   environmentInputs: <+input>
                   serviceOverrideInputs: <+input>
                   infrastructureDefinitions: <+input>
+      - stage:
+          name: differentrepo_differentbranch_staticbehaviour
+          identifier: differentrepo_differentbranch_staticbehaviour
+          template:
+            templateRef: account.stgtempgit
+            versionLabel: "1"
+            gitBranch: fardeen
+            templateInputs:
+              spec:
+                service:
+                  serviceInputs: <+input>
