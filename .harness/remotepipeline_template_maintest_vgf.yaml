@@ -193,3 +193,13 @@ template:
               spec:
                 service:
                   serviceInputs: <+input>
+      - stage:
+          name: differentrepo_defaultBranch_defaultBehaviour
+          identifier: differentrepo_defaultBranch_defaultBehaviour
+          template:
+            templateRef: account.stgtempgit
+            versionLabel: "1"
+            templateInputs:
+              spec:
+                service:
+                  serviceInputs: <+input>
