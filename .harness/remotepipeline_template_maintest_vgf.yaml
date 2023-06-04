@@ -9,31 +9,8 @@ template:
   spec:
     stages:
       - stage:
-          name: fd
-          identifier: fd
-          description: ""
-          type: Custom
-          spec:
-            execution:
-              steps:
-                - step:
-                    type: ShellScript
-                    name: ShellScript_1
-                    identifier: ShellScript_1
-                    spec:
-                      shell: Bash
-                      onDelegate: true
-                      source:
-                        type: Inline
-                        spec:
-                          script: fd
-                      environmentVariables: []
-                      outputVariables: []
-                    timeout: 10m
-          tags: {}
-      - stage:
-          name: bgf
-          identifier: bgf
+          name: samerepo_samebranch_steptest
+          identifier: samerepo_samebranchsteptest
           description: ""
           type: Deployment
           spec:
@@ -102,41 +79,6 @@ template:
             templateRef: stage_template_1
             versionLabel: v2
             gitBranch: main_test
-            templateInputs:
-              type: Deployment
-              spec:
-                service:
-                  serviceRef: <+input>
-                  serviceInputs: <+input>
-                environment:
-                  environmentRef: <+input>
-                  environmentInputs: <+input>
-                  serviceOverrideInputs: <+input>
-                  infrastructureDefinitions: <+input>
-      - stage:
-          name: stgmaintest
-          identifier: stgmaintest
-          template:
-            templateRef: stage_template_1
-            versionLabel: v2
-            templateInputs:
-              type: Deployment
-              spec:
-                service:
-                  serviceRef: <+input>
-                  serviceInputs: <+input>
-                environment:
-                  environmentRef: <+input>
-                  environmentInputs: <+input>
-                  serviceOverrideInputs: <+input>
-                  infrastructureDefinitions: <+input>
-      - stage:
-          name: gtfrde
-          identifier: gtfrde
-          template:
-            templateRef: stagetestmain
-            versionLabel: g7
-            gitBranch: main
             templateInputs:
               type: Deployment
               spec:
