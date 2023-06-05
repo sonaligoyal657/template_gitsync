@@ -58,3 +58,20 @@ template:
                   environmentRef: <+input>
                   environmentInputs: <+input>
                   infrastructureDefinitions: <+input>
+      - stage:
+          name: diffrepo_diffbranch
+          identifier: diffrepo_diffbranch
+          template:
+            templateRef: account.stgtempgit
+            versionLabel: "1"
+            gitBranch: fardeen
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  infrastructureDefinitions: <+input>
