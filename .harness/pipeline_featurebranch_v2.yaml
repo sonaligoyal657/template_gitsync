@@ -1,0 +1,25 @@
+template:
+  name: pipeline_featurebranch
+  identifier: pipeline_featurebranch
+  versionLabel: v2
+  type: Pipeline
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: template1
+                    identifier: template1
+                    template:
+                      templateRef: checkApproval2
+                      versionLabel: v1
+          tags: {}
