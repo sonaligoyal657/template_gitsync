@@ -24,3 +24,21 @@ template:
                         type: JiraApproval
                         spec:
                           connectorRef: <+input>
+      - stage:
+          name: samerepo_diffbranch
+          identifier: samerepo_diffbranch
+          template:
+            templateRef: stage_template_1
+            versionLabel: v2
+            gitBranch: main_test
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
