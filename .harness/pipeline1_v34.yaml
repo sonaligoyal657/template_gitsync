@@ -42,3 +42,19 @@ template:
                   environmentInputs: <+input>
                   serviceOverrideInputs: <+input>
                   infrastructureDefinitions: <+input>
+      - stage:
+          name: diffrepo_defaultbranch
+          identifier: diffrepo_defaultbranch
+          template:
+            templateRef: account.stgtempgit
+            versionLabel: "1"
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  infrastructureDefinitions: <+input>
