@@ -1,0 +1,26 @@
+template:
+  name: pipeline1
+  identifier: pipeline1
+  versionLabel: v34
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          template:
+            templateRef: stageTemplate1
+            versionLabel: v2
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: step9
+                        type: JiraApproval
+                        spec:
+                          connectorRef: <+input>
