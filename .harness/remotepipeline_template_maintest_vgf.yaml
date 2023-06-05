@@ -145,3 +145,27 @@ template:
               spec:
                 service:
                   serviceInputs: <+input>
+      - stage:
+          name: stg23
+          identifier: stg23
+          template:
+            templateRef: stage_approval
+            versionLabel: fcdx
+            gitBranch: main
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: fds
+                        type: CustomApproval
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
+                          outputVariables:
+                            - name: frd
+                              type: String
+                              value: <+input>
