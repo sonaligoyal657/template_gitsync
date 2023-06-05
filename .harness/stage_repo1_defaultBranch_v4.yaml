@@ -1,0 +1,25 @@
+template:
+  name: stage_repo1_defaultBranch
+  identifier: stage_repo1_defaultBranch
+  versionLabel: v4
+  type: Stage
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              type: Http
+              name: Http_1
+              identifier: Http_1
+              timeout: 10s
+              spec:
+                url: <+input>
+                method: GET
+                headers: []
+                inputVariables: []
+                outputVariables: []
+                requestBody: req
