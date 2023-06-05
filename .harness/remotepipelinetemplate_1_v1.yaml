@@ -23,3 +23,19 @@ template:
                     spec:
                       duration: 10m
           tags: {}
+      - stage:
+          name: samerepo_samebranch
+          identifier: samerepo_samebranch
+          template:
+            templateRef: stage_repo1_defaultBranch
+            versionLabel: v4
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: Http_1
+                        type: Http
+                        spec:
+                          url: <+input>
