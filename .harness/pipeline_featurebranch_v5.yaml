@@ -1,0 +1,52 @@
+template:
+  name: pipeline_featurebranch
+  identifier: pipeline_featurebranch
+  versionLabel: v5
+  type: Pipeline
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          description: ""
+          type: Approval
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: CustomApproval
+                    name: gfd
+                    identifier: gfd
+                    timeout: 1d
+                    spec:
+                      shell: Bash
+                      retryInterval: 10s
+                      scriptTimeout: 10m
+                      source:
+                        type: Inline
+                        spec:
+                          script: fd
+                      environmentVariables: []
+                      approvalCriteria:
+                        type: KeyValues
+                        spec:
+                          matchAnyCondition: false
+                          conditions:
+                            - key: gf
+                              operator: equals
+                              value: gf
+                      rejectionCriteria:
+                        type: KeyValues
+                        spec:
+                          matchAnyCondition: false
+                          conditions: []
+                      delegateSelectors: []
+                      onDelegate: true
+                      outputVariables:
+                        - name: f
+                          type: String
+                          value: g
+          tags: {}
