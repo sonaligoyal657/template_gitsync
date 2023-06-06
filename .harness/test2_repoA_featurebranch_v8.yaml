@@ -1,0 +1,30 @@
+template:
+  name: test2_repoA_featurebranch
+  identifier: test2_repoA_featurebranch
+  versionLabel: v8
+  type: Pipeline
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: grfde
+          identifier: grfde
+          template:
+            templateRef: stage2_repoA_featurebranch
+            versionLabel: v3
+            gitBranch: main_test
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: custom1
+                        type: CustomApproval
+                        spec:
+                          outputVariables:
+                            - name: abc
+                              type: String
+                              value: <+input>
