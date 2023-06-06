@@ -28,3 +28,20 @@ template:
                             - name: abc
                               type: String
                               value: <+input>
+      - stage:
+          name: fds
+          identifier: fds
+          template:
+            templateRef: stage3_repoB_defaultBranch
+            versionLabel: v4
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: harnessaproval
+                        type: HarnessApproval
+                        spec:
+                          approvers:
+                            userGroups: <+input>
