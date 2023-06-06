@@ -1,5 +1,5 @@
 template:
-  name: pipeline1
+  name: PipelineRepo1_defaultBranch
   identifier: pipeline1
   versionLabel: d
   type: Pipeline
