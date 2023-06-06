@@ -1,0 +1,26 @@
+template:
+  name: p1_default
+  identifier: p1_default
+  versionLabel: h
+  type: Pipeline
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg_r1_default
+          identifier: stg_r1_default
+          template:
+            templateRef: stage_repo1_defaultBranch
+            versionLabel: v4
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: Http_1
+                        type: Http
+                        spec:
+                          url: <+input>
