@@ -1,0 +1,27 @@
+template:
+  name: pipeline1
+  identifier: pipeline1
+  versionLabel: d
+  type: Pipeline
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          template:
+            templateRef: stage_repo2_featurebranch
+            versionLabel: v9
+            gitBranch: feature1
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: Wait_1
+                        type: Wait
+                        spec:
+                          duration: <+input>
