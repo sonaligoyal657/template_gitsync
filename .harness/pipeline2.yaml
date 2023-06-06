@@ -24,3 +24,23 @@ pipeline:
                           type: Inline
                           spec:
                             script: <+input>
+    - stage:
+        name: stg2_repoa_feature
+        identifier: stg2_repoa_feature
+        template:
+          templateRef: stage2_repoA_featurebranch
+          versionLabel: v3
+          gitBranch: main_test
+          templateInputs:
+            type: Approval
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: custom1
+                      type: CustomApproval
+                      spec:
+                        outputVariables:
+                          - name: abc
+                            type: String
+                            value: <+input>
