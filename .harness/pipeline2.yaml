@@ -1,0 +1,26 @@
+pipeline:
+  name: pipeline2
+  identifier: pipeline2
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stg1_repoA_defaultbranch
+        identifier: stg1_repoA_defaultbranch
+        template:
+          templateRef: stage1_repoA_defaultbranch
+          versionLabel: v2
+          templateInputs:
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: ShellScript_1
+                      type: ShellScript
+                      spec:
+                        source:
+                          type: Inline
+                          spec:
+                            script: <+input>
