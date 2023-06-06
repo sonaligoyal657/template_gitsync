@@ -1,0 +1,28 @@
+template:
+  name: p1_r1_default
+  identifier: p1_r1_default
+  versionLabel: frd
+  type: Pipeline
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1_r1_fetaure
+          identifier: stg1_r1_fetaure
+          template:
+            templateRef: stg1_repo1_feature
+            versionLabel: vgb
+            gitBranch: main_test
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: step1
+                        type: HarnessApproval
+                        spec:
+                          approvers:
+                            userGroups: <+input>
