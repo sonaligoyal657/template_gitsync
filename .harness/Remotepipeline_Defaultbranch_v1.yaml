@@ -69,3 +69,20 @@ template:
                             type: Inline
                             spec:
                               script: <+input>
+      - stage:
+          name: stg3_diffrepo
+          identifier: stg3_diffrepo
+          template:
+            templateRef: stg_newrepo_featurebranch
+            versionLabel: v9
+            gitBranch: feature1
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: Http_1
+                        type: Http
+                        spec:
+                          url: <+input>
