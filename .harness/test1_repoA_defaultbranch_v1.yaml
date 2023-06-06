@@ -64,3 +64,10 @@ template:
                         spec:
                           approvers:
                             userGroups: <+input>
+      - stage:
+          name: stage4
+          identifier: stage4
+          template:
+            templateRef: stage4_repoB_featureBranch
+            versionLabel: v5
+            gitBranch: feature1
