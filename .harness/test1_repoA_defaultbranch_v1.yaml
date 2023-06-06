@@ -27,3 +27,40 @@ template:
                             type: Inline
                             spec:
                               script: <+input>
+      - stage:
+          name: testcase2
+          identifier: testcase2
+          template:
+            templateRef: stage2_repoA_featurebranch
+            versionLabel: v3
+            gitBranch: main_test
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: custom1
+                        type: CustomApproval
+                        spec:
+                          outputVariables:
+                            - name: abc
+                              type: String
+                              value: <+input>
+      - stage:
+          name: testcase3
+          identifier: testcase3
+          template:
+            templateRef: stage3_repoB_defaultBranch
+            versionLabel: v4
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: harnessaproval
+                        type: HarnessApproval
+                        spec:
+                          approvers:
+                            userGroups: <+input>
