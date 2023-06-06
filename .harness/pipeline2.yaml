@@ -61,3 +61,10 @@ pipeline:
                       spec:
                         approvers:
                           userGroups: <+input>
+    - stage:
+        name: stg4_repoB_feature
+        identifier: stg4_repoB_feature
+        template:
+          templateRef: stage4_repoB_featureBranch
+          versionLabel: v5
+          gitBranch: feature1
