@@ -1,0 +1,46 @@
+template:
+  name: pipelinerepo1_defaultbranch
+  identifier: pipelinerepo1_defaultbranch
+  versionLabel: gv
+  type: Pipeline
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1_repo2_defaultbranch
+          identifier: stg1_repo2_defaultbranch
+          template:
+            templateRef: stage_repo2_defaultbranch
+            versionLabel: v7
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: customstep1
+                        type: CustomApproval
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
+      - stage:
+          name: stag2_repo2_featurebranch
+          identifier: stag2_repo2_featurebranch
+          template:
+            templateRef: stage_repo2_featurebranch
+            versionLabel: v9
+            gitBranch: feature1
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: Wait_1
+                        type: Wait
+                        spec:
+                          duration: <+input>
