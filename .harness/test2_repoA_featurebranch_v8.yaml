@@ -45,3 +45,10 @@ template:
                         spec:
                           approvers:
                             userGroups: <+input>
+      - stage:
+          name: stg12
+          identifier: stg12
+          template:
+            templateRef: stage4_repoB_featureBranch
+            versionLabel: v5
+            gitBranch: feature1
