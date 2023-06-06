@@ -49,3 +49,23 @@ template:
                   - AllErrors
                 action:
                   type: StageRollback
+      - stage:
+          name: stg3
+          identifier: stg3
+          template:
+            templateRef: stageTemplate_featurebranch
+            versionLabel: v3
+            gitBranch: main_test
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: ShellScript_1
+                        type: ShellScript
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
