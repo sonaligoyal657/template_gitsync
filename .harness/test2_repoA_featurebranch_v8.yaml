@@ -9,8 +9,8 @@ template:
   spec:
     stages:
       - stage:
-          name: grfde
-          identifier: grfde
+          name: t1_repoA_feature_defaultbehaviour
+          identifier: t1_repoA_feature_defaultbehaviour
           template:
             templateRef: stage2_repoA_featurebranch
             versionLabel: v3
@@ -29,8 +29,8 @@ template:
                               type: String
                               value: <+input>
       - stage:
-          name: fds
-          identifier: fds
+          name: t2_repoB_default_defaultbehaviour
+          identifier: t2_repoB_default_defaultbehaviour
           template:
             templateRef: stage3_repoB_defaultBranch
             versionLabel: v4
@@ -46,15 +46,15 @@ template:
                           approvers:
                             userGroups: <+input>
       - stage:
-          name: stg12
-          identifier: stg12
+          name: t3_repoB_feature_staticbehaviour
+          identifier: t3_repoB_feature_staticbehaviour
           template:
             templateRef: stage4_repoB_featureBranch
             versionLabel: v5
             gitBranch: feature1
       - stage:
-          name: stge45
-          identifier: stge45
+          name: t4_repoA_default_staticbehaviour
+          identifier: t4_repoA_default_staticbehaviour
           template:
             templateRef: stage1_repoA_defaultbranch
             versionLabel: v2
