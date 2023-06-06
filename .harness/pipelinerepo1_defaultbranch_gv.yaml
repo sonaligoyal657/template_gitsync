@@ -1,5 +1,5 @@
 template:
-  name: pipelinerepo1_defaultbranch
+  name: pipelinerepo1_featurebranch
   identifier: pipelinerepo1_defaultbranch
   versionLabel: gv
   type: Pipeline
