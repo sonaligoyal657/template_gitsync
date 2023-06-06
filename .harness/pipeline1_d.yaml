@@ -25,3 +25,22 @@ template:
                         type: Wait
                         spec:
                           duration: <+input>
+      - stage:
+          name: stg2_defaultbehaviour
+          identifier: stg2_defaultbehaviour
+          template:
+            templateRef: stage_repo2_defaultbranch
+            versionLabel: v7
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: customstep1
+                        type: CustomApproval
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
