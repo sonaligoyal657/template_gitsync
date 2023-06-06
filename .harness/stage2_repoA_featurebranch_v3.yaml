@@ -1,0 +1,46 @@
+template:
+  name: stage2_repoA_featurebranch
+  identifier: stage2_repoA_featurebranch
+  versionLabel: v3
+  type: Stage
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Approval
+    spec:
+      execution:
+        steps:
+          - step:
+              type: CustomApproval
+              name: custom1
+              identifier: custom1
+              timeout: 1d
+              spec:
+                shell: Bash
+                retryInterval: 10s
+                scriptTimeout: 10m
+                source:
+                  type: Inline
+                  spec:
+                    script: test
+                environmentVariables: []
+                approvalCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions:
+                      - key: status
+                        operator: equals
+                        value: todo
+                rejectionCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions: []
+                delegateSelectors: []
+                onDelegate: true
+                outputVariables:
+                  - name: abc
+                    type: String
+                    value: <+input>
