@@ -1,0 +1,25 @@
+template:
+  name: test1_repoA_defaultbranch
+  identifier: test1_repoA_defaultbranch
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: s
+          identifier: s
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: Wait
+                    name: Wait_1
+                    identifier: Wait_1
+                    spec:
+                      duration: 10m
+          tags: {}
