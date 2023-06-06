@@ -44,3 +44,20 @@ pipeline:
                           - name: abc
                             type: String
                             value: <+input>
+    - stage:
+        name: stg3_repoB_default
+        identifier: stg3_repoB_default
+        template:
+          templateRef: stage3_repoB_defaultBranch
+          versionLabel: v4
+          templateInputs:
+            type: Approval
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: harnessaproval
+                      type: HarnessApproval
+                      spec:
+                        approvers:
+                          userGroups: <+input>
