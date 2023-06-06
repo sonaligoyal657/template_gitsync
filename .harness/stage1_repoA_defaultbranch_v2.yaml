@@ -1,0 +1,27 @@
+template:
+  name: stage1_repoA_defaultbranch
+  identifier: stage1_repoA_defaultbranch
+  versionLabel: v2
+  type: Stage
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              type: ShellScript
+              name: ShellScript_1
+              identifier: ShellScript_1
+              timeout: 10m
+              spec:
+                shell: Bash
+                onDelegate: true
+                source:
+                  type: Inline
+                  spec:
+                    script: <+input>
+                environmentVariables: []
+                outputVariables: []
