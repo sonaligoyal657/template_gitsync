@@ -91,23 +91,6 @@ template:
                   serviceOverrideInputs: <+input>
                   infrastructureDefinitions: <+input>
       - stage:
-          name: stg_samerepo_differentbranch
-          identifier: stg_samerepo_differentbranch
-          template:
-            templateRef: stageTemplate1
-            versionLabel: v2
-            gitBranch: main
-            templateInputs:
-              type: Approval
-              spec:
-                execution:
-                  steps:
-                    - step:
-                        identifier: step9
-                        type: JiraApproval
-                        spec:
-                          connectorRef: <+input>
-      - stage:
           name: samerepo_samebranch_defaultBehaviour
           identifier: samerepo_samebranch_defaultBehaviour
           template:
@@ -145,27 +128,3 @@ template:
               spec:
                 service:
                   serviceInputs: <+input>
-      - stage:
-          name: stg23
-          identifier: stg23
-          template:
-            templateRef: stage_approval
-            versionLabel: fcdx
-            gitBranch: main
-            templateInputs:
-              type: Approval
-              spec:
-                execution:
-                  steps:
-                    - step:
-                        identifier: fds
-                        type: CustomApproval
-                        spec:
-                          source:
-                            type: Inline
-                            spec:
-                              script: <+input>
-                          outputVariables:
-                            - name: frd
-                              type: String
-                              value: <+input>
