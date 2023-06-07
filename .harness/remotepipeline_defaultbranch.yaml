@@ -1,0 +1,10 @@
+pipeline:
+  name: remotepipeline_defaultbranch
+  identifier: remotepipeline_defaultbranch
+  template:
+    templateRef: pipeline_featurebranch
+    versionLabel: v5
+    gitBranch: main_test
+  tags: {}
+  projectIdentifier: defaultproject
+  orgIdentifier: default
