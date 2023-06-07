@@ -1,0 +1,57 @@
+pipeline:
+  name: remotepipeline2_defaultbranch
+  identifier: remotepipeline2_defaultbranch
+  template:
+    templateRef: test1_repoA_defaultbranch
+    versionLabel: v1
+    templateInputs:
+      stages:
+        - stage:
+            identifier: testcase1
+            template:
+              templateInputs:
+                type: Custom
+                spec:
+                  execution:
+                    steps:
+                      - step:
+                          identifier: ShellScript_1
+                          type: ShellScript
+                          spec:
+                            source:
+                              type: Inline
+                              spec:
+                                script: <+input>
+        - stage:
+            identifier: testcase2
+            template:
+              templateInputs:
+                type: Approval
+                spec:
+                  execution:
+                    steps:
+                      - step:
+                          identifier: custom1
+                          type: CustomApproval
+                          spec:
+                            outputVariables:
+                              - name: abc
+                                type: String
+                                value: <+input>
+        - stage:
+            identifier: testcase3
+            template:
+              templateInputs:
+                type: Approval
+                spec:
+                  execution:
+                    steps:
+                      - step:
+                          identifier: harnessaproval
+                          type: HarnessApproval
+                          spec:
+                            approvers:
+                              userGroups: <+input>
+  tags: {}
+  projectIdentifier: defaultproject
+  orgIdentifier: default
