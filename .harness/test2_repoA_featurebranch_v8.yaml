@@ -51,3 +51,23 @@ template:
             templateRef: stage4_repoB_featureBranch
             versionLabel: v5
             gitBranch: feature1
+      - stage:
+          name: hgtrfedws
+          identifier: hgtrfedws
+          template:
+            templateRef: stage1_repoA_defaultbranch
+            versionLabel: v2
+            gitBranch: main
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: ShellScript_1
+                        type: ShellScript
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
