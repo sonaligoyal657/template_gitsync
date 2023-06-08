@@ -54,3 +54,9 @@ template:
                             - name: abc
                               type: String
                               value: <+input>
+      - stage:
+          name: g
+          identifier: g
+          template:
+            templateRef: stg5
+            versionLabel: g
