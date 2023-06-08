@@ -1,0 +1,27 @@
+pipeline:
+  name: fc
+  identifier: fc
+  template:
+    templateRef: pipelineTemplate_demo_repoA_default
+    versionLabel: v9
+    templateInputs:
+      stages:
+        - stage:
+            identifier: stg1_repoA_feature
+            template:
+              templateInputs:
+                type: Approval
+                spec:
+                  execution:
+                    steps:
+                      - step:
+                          identifier: custom1
+                          type: CustomApproval
+                          spec:
+                            outputVariables:
+                              - name: abc
+                                type: String
+                                value: <+input>
+  tags: {}
+  projectIdentifier: defaultproject
+  orgIdentifier: default
