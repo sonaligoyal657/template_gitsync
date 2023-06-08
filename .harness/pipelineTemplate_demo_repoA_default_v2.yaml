@@ -28,3 +28,10 @@ template:
                             - name: abc
                               type: String
                               value: <+input>
+      - stage:
+          name: stg2
+          identifier: stg2
+          template:
+            templateRef: stage4_repoB_featureBranch
+            versionLabel: v5
+            gitBranch: feature1
