@@ -28,3 +28,10 @@ template:
                             type: Inline
                             spec:
                               script: <+input>
+      - stage:
+          name: "c "
+          identifier: c
+          template:
+            templateRef: stage4_repoB_featureBranch
+            versionLabel: v5
+            gitBranch: feature1
