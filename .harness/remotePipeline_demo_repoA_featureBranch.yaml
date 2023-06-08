@@ -1,0 +1,31 @@
+pipeline:
+  name: remotePipeline_demo_repoA_featureBranch
+  identifier: remotePipeline_demo_repoA_featureBranch
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stg1
+        identifier: stg1
+        template:
+          templateRef: stage3_repoB_defaultBranch
+          versionLabel: v4
+          templateInputs:
+            type: Approval
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: harnessaproval
+                      type: HarnessApproval
+                      spec:
+                        approvers:
+                          userGroups: <+input>
+    - stage:
+        name: stg2
+        identifier: stg2
+        template:
+          templateRef: stage4_repoB_featureBranch
+          versionLabel: v5
+          gitBranch: feature1
