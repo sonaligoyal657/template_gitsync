@@ -1,0 +1,30 @@
+template:
+  name: t
+  identifier: t
+  versionLabel: "y"
+  type: Pipeline
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: dcx
+          identifier: dcx
+          template:
+            templateRef: stage1_repoA_defaultbranch
+            versionLabel: v2
+            gitBranch: main
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: ShellScript_1
+                        type: ShellScript
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
