@@ -28,19 +28,19 @@ template:
                             spec:
                               script: <+input>
       - stage:
-          name: stag2_repo2_featurebranch
-          identifier: stag2_repo2_featurebranch
+          name: yhu
+          identifier: yhu
           template:
-            templateRef: stage_repo2_featurebranch
-            versionLabel: v9
-            gitBranch: feature1
+            templateRef: stg1_repo1_feature
+            versionLabel: vgb
             templateInputs:
-              type: Custom
+              type: Approval
               spec:
                 execution:
                   steps:
                     - step:
-                        identifier: Wait_1
-                        type: Wait
+                        identifier: step1
+                        type: HarnessApproval
                         spec:
-                          duration: <+input>
+                          approvers:
+                            userGroups: <+input>
