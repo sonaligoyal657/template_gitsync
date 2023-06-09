@@ -1,0 +1,41 @@
+pipeline:
+  name: fd
+  identifier: fd
+  template:
+    templateRef: pipelinerepo1_defaultbranch
+    versionLabel: gv
+    templateInputs:
+      stages:
+        - stage:
+            identifier: stg1_repo2_defaultbranch
+            template:
+              templateInputs:
+                type: Approval
+                spec:
+                  execution:
+                    steps:
+                      - step:
+                          identifier: customstep1
+                          type: CustomApproval
+                          spec:
+                            source:
+                              type: Inline
+                              spec:
+                                script: <+input>
+        - stage:
+            identifier: yhu
+            template:
+              templateInputs:
+                type: Approval
+                spec:
+                  execution:
+                    steps:
+                      - step:
+                          identifier: step1
+                          type: HarnessApproval
+                          spec:
+                            approvers:
+                              userGroups: <+input>
+  tags: {}
+  projectIdentifier: Eric
+  orgIdentifier: default
