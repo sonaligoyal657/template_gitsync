@@ -1,0 +1,29 @@
+template:
+  name: d
+  identifier: d
+  versionLabel: dcx
+  type: Pipeline
+  projectIdentifier: defaultproject
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: dx
+          identifier: dx
+          template:
+            templateRef: stage2_repoA_featurebranch
+            versionLabel: v3
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: custom1
+                        type: CustomApproval
+                        spec:
+                          outputVariables:
+                            - name: abc
+                              type: String
+                              value: <+input>
