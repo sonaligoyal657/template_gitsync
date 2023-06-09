@@ -128,3 +128,9 @@ template:
               spec:
                 service:
                   serviceInputs: <+input>
+      - stage:
+          name: dxsz
+          identifier: dxsz
+          template:
+            templateRef: sd
+            versionLabel: fdc
