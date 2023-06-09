@@ -1,0 +1,16 @@
+template:
+  name: desw
+  identifier: desw
+  versionLabel: d
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: dxs
+          identifier: dxs
+          template:
+            templateRef: sd
+            versionLabel: fdc
