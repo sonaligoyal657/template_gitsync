@@ -91,3 +91,22 @@ template:
                             type: Inline
                             spec:
                               script: <+input>
+      - stage:
+          name: s
+          identifier: s
+          template:
+            templateRef: stage2_repoA_featurebranch
+            versionLabel: v3
+            templateInputs:
+              type: Approval
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: custom1
+                        type: CustomApproval
+                        spec:
+                          outputVariables:
+                            - name: abc
+                              type: String
+                              value: <+input>
