@@ -1,0 +1,12 @@
+template:
+  name: step_default
+  identifier: step_default
+  versionLabel: v8
+  type: Step
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: K8sDryRun
+    timeout: 10m
+    spec: {}
