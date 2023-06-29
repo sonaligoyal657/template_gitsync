@@ -1,0 +1,45 @@
+template:
+  name: stg_feature
+  identifier: stg_feature
+  versionLabel: v11
+  type: Stage
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Approval
+    spec:
+      execution:
+        steps:
+          - step:
+              type: CustomApproval
+              name: custom_1
+              identifier: custom_1
+              timeout: 1d
+              spec:
+                shell: Bash
+                retryInterval: 10s
+                scriptTimeout: 10m
+                source:
+                  type: Inline
+                  spec:
+                    script: export abc = 123
+                environmentVariables: []
+                approvalCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions:
+                      - key: test
+                        operator: equals
+                        value: "123"
+                rejectionCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions: []
+                onDelegate: true
+                outputVariables:
+                  - name: test
+                    type: String
+                    value: abc
