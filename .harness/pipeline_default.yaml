@@ -1,0 +1,14 @@
+pipeline:
+  name: pipeline_default
+  identifier: pipeline_default
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stg1
+        identifier: stg1
+        template:
+          templateRef: stg_feature
+          versionLabel: v11
+          gitBranch: main_test
