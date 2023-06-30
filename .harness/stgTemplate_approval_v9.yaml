@@ -20,15 +20,15 @@ template:
                 approvalCriteria:
                   type: KeyValues
                   spec:
-                    matchAnyCondition: false
+                    matchAnyCondition: true
                     conditions:
                       - key: Status
                         operator: equals
-                        value: to do
+                        value: todo
                 rejectionCriteria:
                   type: KeyValues
                   spec:
-                    matchAnyCondition: false
+                    matchAnyCondition: true
                     conditions: []
-                connectorRef: <+input>
-                issueKey: tji-9087
+                connectorRef: account.s
+                issueKey: test
