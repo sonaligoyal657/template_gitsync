@@ -1,0 +1,38 @@
+pipeline:
+  name: fv
+  identifier: fv
+  template:
+    templateRef: account.goldenpath
+    versionLabel: v1
+    templateInputs:
+      stages:
+        - parallel:
+            - stage:
+                identifier: Deploy_To_Dev
+                type: Deployment
+                spec:
+                  services:
+                    values: <+input>
+                  environments:
+                    values:
+                      - environmentRef: account.Dev
+                        deployToAll: <+input>
+                        infrastructureDefinitions: <+input>
+            - stage:
+                identifier: Deploy_to_Dev_Helm
+                type: Deployment
+                spec:
+                  environments:
+                    values:
+                      - environmentRef: account.Dev
+                        deployToAll: <+input>
+                        infrastructureDefinitions: <+input>
+                  services:
+                    values: <+input>
+      variables:
+        - name: cluster_name
+          type: String
+          value: <+input>
+  tags: {}
+  projectIdentifier: Jira
+  orgIdentifier: default
