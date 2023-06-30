@@ -1,0 +1,16 @@
+template:
+  name: step_repoa_default
+  identifier: step_repoa_default
+  versionLabel: df
+  type: Step
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Email
+    timeout: 10m
+    spec:
+      to: <+input>
+      cc: ""
+      subject: fedsa
+      body: <+input>
