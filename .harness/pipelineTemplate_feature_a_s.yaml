@@ -31,3 +31,10 @@ template:
                       outputVariables: []
                     timeout: 10m
           tags: {}
+      - stage:
+          name: stg2_differentrepo_defaultbranch
+          identifier: stg2_differentrepo_defaultbranch
+          template:
+            templateRef: g
+            versionLabel: vg
+            gitBranch: master
