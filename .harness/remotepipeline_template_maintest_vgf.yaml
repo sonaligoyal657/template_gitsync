@@ -32,7 +32,7 @@ template:
                     type: K8sRollingDeploy
                     timeout: 10m
                     spec:
-                      skipDryRun: false
+                      skipDryRun: true
                       pruningEnabled: false
                 - step:
                     name: main-teststep
@@ -47,7 +47,7 @@ template:
                     type: K8sRollingRollback
                     timeout: 10m
                     spec:
-                      pruningEnabled: false
+                      pruningEnabled: true
           tags: {}
           failureStrategies:
             - onFailure:
