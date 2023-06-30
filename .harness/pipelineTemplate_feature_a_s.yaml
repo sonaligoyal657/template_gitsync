@@ -9,46 +9,22 @@ template:
   spec:
     stages:
       - stage:
-          name: dx
-          identifier: dx
-          description: ""
-          type: Custom
-          spec:
-            execution:
-              steps:
-                - step:
-                    type: ShellScript
-                    name: ShellScript_1
-                    identifier: ShellScript_1
-                    spec:
-                      shell: Bash
-                      onDelegate: true
-                      source:
-                        type: Inline
+          name: stg_diffrepo_diffbrnach
+          identifier: stg_diffrepo_diffbrnach
+          template:
+            templateRef: stg_feature_repoB
+            versionLabel: xc
+            gitBranch: feature1
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: ShellScript_1
+                        type: ShellScript
                         spec:
-                          script: frdsxz
-                      environmentVariables: []
-                      outputVariables: []
-                    timeout: 10m
-          tags: {}
-      - stage:
-          name: stg2_differentrepo_defaultbranch
-          identifier: stg2_differentrepo_defaultbranch
-          template:
-            templateRef: g
-            versionLabel: vg
-            gitBranch: master
-      - stage:
-          name: rfed
-          identifier: rfed
-          template:
-            templateRef: g
-            versionLabel: vg
-            gitBranch: master
-      - stage:
-          name: fdsxza
-          identifier: fdsxza
-          template:
-            templateRef: stageTemplate1
-            versionLabel: v2
-            gitBranch: main
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
