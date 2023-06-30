@@ -115,9 +115,15 @@ template:
             versionLabel: "1"
             gitBranch: fardeen
             templateInputs:
+              type: Deployment
               spec:
                 service:
+                  serviceRef: <+input>
                   serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  infrastructureDefinitions: <+input>
       - stage:
           name: differentrepo_defaultBranch_defaultBehaviour
           identifier: differentrepo_defaultBranch_defaultBehaviour
@@ -125,9 +131,15 @@ template:
             templateRef: account.stgtempgit
             versionLabel: "1"
             templateInputs:
+              type: Deployment
               spec:
                 service:
+                  serviceRef: <+input>
                   serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  infrastructureDefinitions: <+input>
       - stage:
           name: dxsz
           identifier: dxsz
