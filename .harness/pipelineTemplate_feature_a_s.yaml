@@ -1,0 +1,33 @@
+template:
+  name: pipelineTemplate_feature_a
+  identifier: pipelineTemplate_feature_a
+  versionLabel: s
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: dx
+          identifier: dx
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      onDelegate: true
+                      source:
+                        type: Inline
+                        spec:
+                          script: frdsxz
+                      environmentVariables: []
+                      outputVariables: []
+                    timeout: 10m
+          tags: {}
