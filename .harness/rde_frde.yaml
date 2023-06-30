@@ -23,7 +23,7 @@ template:
                 source:
                   type: Inline
                   spec:
-                    script: fvcd
+                    script: echo 'hello'
                 environmentVariables: []
                 approvalCriteria:
                   type: KeyValues
