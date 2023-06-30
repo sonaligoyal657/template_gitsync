@@ -28,3 +28,24 @@ template:
                             type: Inline
                             spec:
                               script: <+input>
+      - stage:
+          name: fd
+          identifier: fd
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: step_samerepo_diffbvranch
+                    identifier: step_samerepo_diffbvranch
+                    template:
+                      templateRef: step_repoa_default
+                      versionLabel: df
+                      gitBranch: main
+                      templateInputs:
+                        type: Email
+                        spec:
+                          to: <+input>
+                          body: <+input>
+          tags: {}
