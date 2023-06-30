@@ -38,3 +38,17 @@ template:
             templateRef: g
             versionLabel: vg
             gitBranch: master
+      - stage:
+          name: rfed
+          identifier: rfed
+          template:
+            templateRef: g
+            versionLabel: vg
+            gitBranch: master
+      - stage:
+          name: fdsxza
+          identifier: fdsxza
+          template:
+            templateRef: stageTemplate1
+            versionLabel: v2
+            gitBranch: main
