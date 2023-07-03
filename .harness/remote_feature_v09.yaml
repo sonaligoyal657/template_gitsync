@@ -14,3 +14,24 @@ template:
           template:
             templateRef: rde
             versionLabel: frde
+      - stage:
+          name: stg2
+          identifier: stg2
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: step2
+                    identifier: step2
+                    template:
+                      templateRef: step_repoa_default
+                      versionLabel: df
+                      gitBranch: main
+                      templateInputs:
+                        type: Email
+                        spec:
+                          to: <+input>
+                          body: <+input>
+          tags: {}
