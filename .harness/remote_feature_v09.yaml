@@ -1,0 +1,16 @@
+template:
+  name: remote_feature
+  identifier: remote_feature
+  versionLabel: v09
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          template:
+            templateRef: rde
+            versionLabel: frde
