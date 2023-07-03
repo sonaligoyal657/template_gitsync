@@ -1,0 +1,17 @@
+template:
+  name: remote_default_gitsync
+  identifier: remote_default_gitsync1
+  versionLabel: vb
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          template:
+            templateRef: stageTemplate1
+            versionLabel: v2
+            gitBranch: main
