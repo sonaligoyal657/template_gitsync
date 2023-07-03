@@ -1,0 +1,26 @@
+pipeline:
+  name: pipeline_feature
+  identifier: pipeline_feature
+  template:
+    templateRef: remote_feature
+    versionLabel: v09
+    gitBranch: main_test
+    templateInputs:
+      stages:
+        - stage:
+            identifier: stg2
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: step2
+                      template:
+                        templateInputs:
+                          type: Email
+                          spec:
+                            to: <+input>
+                            body: <+input>
+  tags: {}
+  projectIdentifier: Jira
+  orgIdentifier: default
