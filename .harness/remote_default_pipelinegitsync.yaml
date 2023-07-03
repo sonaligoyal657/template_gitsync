@@ -4,7 +4,7 @@ pipeline:
   template:
     templateRef: remote_default_gitsync
     versionLabel: vb
-    gitBranch: main
+    gitBranch: main_test
     templateInputs:
       stages:
         - stage:
