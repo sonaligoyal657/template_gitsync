@@ -1,0 +1,26 @@
+pipeline:
+  name: remote_default_pipelinegitsync
+  identifier: remote_default_pipelinegitsync
+  template:
+    templateRef: remote_default_gitsync
+    versionLabel: vb
+    gitBranch: main
+    templateInputs:
+      stages:
+        - stage:
+            identifier: stg1
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: stepTemplate
+                      template:
+                        templateInputs:
+                          type: Email
+                          spec:
+                            to: <+input>
+                            body: <+input>
+  tags: {}
+  projectIdentifier: Jira
+  orgIdentifier: default
