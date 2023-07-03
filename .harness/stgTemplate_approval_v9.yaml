@@ -32,3 +32,14 @@ template:
                     conditions: []
                 connectorRef: account.s
                 issueKey: test
+          - step:
+              name: step2
+              identifier: step2
+              template:
+                templateRef: step_repoa_default
+                versionLabel: df
+                templateInputs:
+                  type: Email
+                  spec:
+                    to: <+input>
+                    body: <+input>
