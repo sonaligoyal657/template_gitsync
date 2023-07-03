@@ -31,6 +31,38 @@ pipeline:
                   spec:
                     skipDryRun: false
                     pruningEnabled: false
+              - step:
+                  name: dft
+                  identifier: dft
+                  template:
+                    templateRef: tgrf
+                    versionLabel: fg
+                    gitBranch: feature1
+                    templateInputs:
+                      type: ShellScriptProvision
+                      spec:
+                        source:
+                          type: Inline
+                          spec:
+                            script: <+input>
+              - step:
+                  name: s
+                  identifier: s
+                  template:
+                    templateRef: step_repoa_default
+                    versionLabel: df
+                    templateInputs:
+                      type: Email
+                      spec:
+                        to: <+input>
+                        body: <+input>
+              - step:
+                  name: sdf
+                  identifier: sdf
+                  template:
+                    templateRef: step_template_2
+                    versionLabel: v6
+                    gitBranch: main_test
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
