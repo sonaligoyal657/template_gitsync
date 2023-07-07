@@ -1,0 +1,24 @@
+pipeline:
+  name: pipeline_bug
+  identifier: pipeline_bug
+  projectIdentifier: Eric
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stg1
+        identifier: stg1
+        template:
+          templateRef: stage_repo1_defaultBranch
+          versionLabel: v4
+          gitBranch: main
+          templateInputs:
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: Http_1
+                      type: Http
+                      spec:
+                        url: <+input>
