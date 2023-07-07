@@ -1,0 +1,26 @@
+pipeline:
+  name: gfndfgndfng
+  identifier: gfndfgndfng
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: dsaf
+        identifier: dsaf
+        template:
+          templateRef: stageTemplate1
+          versionLabel: v2
+          templateInputs:
+            type: Approval
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: step2
+                      template:
+                        templateInputs:
+                          type: Email
+                          spec:
+                            to: <+input>
+                            body: <+input>
