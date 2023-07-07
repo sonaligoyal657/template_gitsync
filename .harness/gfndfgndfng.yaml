@@ -6,7 +6,7 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: dsaf
+        name: dsafaaa
         identifier: dsaf
         template:
           templateRef: stageTemplate1
