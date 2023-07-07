@@ -12,27 +12,6 @@ template:
       execution:
         steps:
           - step:
-              name: step9
-              identifier: step9
-              type: JiraApproval
-              timeout: 1d
-              spec:
-                approvalCriteria:
-                  type: KeyValues
-                  spec:
-                    matchAnyCondition: true
-                    conditions:
-                      - key: Status
-                        operator: equals
-                        value: todo
-                rejectionCriteria:
-                  type: KeyValues
-                  spec:
-                    matchAnyCondition: true
-                    conditions: []
-                connectorRef: account.s
-                issueKey: test
-          - step:
               name: step2
               identifier: step2
               template:
