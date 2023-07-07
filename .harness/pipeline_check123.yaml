@@ -1,0 +1,29 @@
+pipeline:
+  name: pipeline check123
+  identifier: pipeline_check123
+  projectIdentifier: shalinitest
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: S12
+        identifier: S12
+        template:
+          templateRef: stageTemp
+          versionLabel: "1"
+          gitBranch: main
+          templateInputs:
+            type: Approval
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: S2
+                      template:
+                        templateInputs:
+                          type: Email
+                          spec:
+                            to: <+input>
+                            cc: <+input>
+                            subject: <+input>
+                            body: <+input>
