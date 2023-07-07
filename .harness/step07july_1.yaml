@@ -1,0 +1,16 @@
+template:
+  name: step07july
+  identifier: step07july
+  versionLabel: "1"
+  type: Step
+  projectIdentifier: shalinitest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Email
+    timeout: 10m
+    spec:
+      to: <+input>
+      cc: <+input>
+      subject: <+input>
+      body: <+input>
