@@ -1,0 +1,27 @@
+template:
+  name: stageTemp
+  identifier: stageTemp
+  versionLabel: "1"
+  type: Stage
+  projectIdentifier: shalinitest
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Approval
+    spec:
+      execution:
+        steps:
+          - step:
+              name: S2
+              identifier: S2
+              template:
+                templateRef: step07july
+                versionLabel: "1"
+                gitBranch: main
+                templateInputs:
+                  type: Email
+                  spec:
+                    to: <+input>
+                    cc: <+input>
+                    subject: <+input>
+                    body: <+input>
