@@ -1,0 +1,28 @@
+pipeline:
+  name: pipeline branch test
+  identifier: pipeline_branch_test
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: S1
+        identifier: S1
+        description: ""
+        type: Approval
+        spec:
+          execution:
+            steps:
+              - step:
+                  name: S12
+                  identifier: S12
+                  template:
+                    templateRef: step_repoa_default
+                    versionLabel: df
+                    gitBranch: main
+                    templateInputs:
+                      type: Email
+                      spec:
+                        to: <+input>
+                        body: <+input>
+        tags: {}
