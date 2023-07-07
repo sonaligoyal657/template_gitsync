@@ -1,0 +1,27 @@
+pipeline:
+  name: check pipeline
+  identifier: check_pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: S123
+        identifier: S123
+        template:
+          templateRef: stageTemplate1
+          versionLabel: v2
+          gitBranch: main
+          templateInputs:
+            type: Approval
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: step2
+                      template:
+                        templateInputs:
+                          type: Email
+                          spec:
+                            to: <+input>
+                            body: <+input>
