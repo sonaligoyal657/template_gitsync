@@ -1,0 +1,27 @@
+pipeline:
+  name: dfagagaf
+  identifier: dfagagaf
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: dfg
+        identifier: dfg
+        template:
+          templateRef: stageTemplate1
+          versionLabel: v2
+          gitBranch: main
+          templateInputs:
+            type: Approval
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: step2
+                      template:
+                        templateInputs:
+                          type: Email
+                          spec:
+                            to: <+input>
+                            body: <+input>
