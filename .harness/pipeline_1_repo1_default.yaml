@@ -1,0 +1,26 @@
+pipeline:
+  name: pipeline_1_repo1_default
+  identifier: pipeline_1_repo1_default
+  template:
+    templateRef: pipelineTemplate_feature_a
+    versionLabel: s
+    gitBranch: main_test
+    templateInputs:
+      stages:
+        - stage:
+            identifier: stg1
+            template:
+              templateInputs:
+                type: Deployment
+                spec:
+                  service:
+                    serviceRef: <+input>
+                    serviceInputs: <+input>
+                  environment:
+                    environmentRef: <+input>
+                    environmentInputs: <+input>
+                    serviceOverrideInputs: <+input>
+                    infrastructureDefinitions: <+input>
+  tags: {}
+  projectIdentifier: Jira
+  orgIdentifier: default
