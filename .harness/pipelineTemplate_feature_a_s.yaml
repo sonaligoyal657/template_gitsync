@@ -9,43 +9,20 @@ template:
   spec:
     stages:
       - stage:
-          name: stg_diffrepo_diffbrnach
-          identifier: stg_diffrepo_diffbrnach
+          name: stg1
+          identifier: stg1
           template:
-            templateRef: stg_feature_repoB
-            versionLabel: xc
-            gitBranch: feature1
+            templateRef: stagetestmain
+            versionLabel: g7
+            gitBranch: main
             templateInputs:
-              type: Custom
+              type: Deployment
               spec:
-                execution:
-                  steps:
-                    - step:
-                        identifier: ShellScript_1
-                        type: ShellScript
-                        spec:
-                          source:
-                            type: Inline
-                            spec:
-                              script: <+input>
-      - stage:
-          name: fd
-          identifier: fd
-          description: ""
-          type: Custom
-          spec:
-            execution:
-              steps:
-                - step:
-                    name: step_samerepo_diffbvranch
-                    identifier: step_samerepo_diffbvranch
-                    template:
-                      templateRef: step_repoa_default
-                      versionLabel: df
-                      gitBranch: main
-                      templateInputs:
-                        type: Email
-                        spec:
-                          to: <+input>
-                          body: <+input>
-          tags: {}
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
