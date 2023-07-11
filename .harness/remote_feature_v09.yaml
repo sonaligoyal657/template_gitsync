@@ -35,3 +35,33 @@ template:
                           to: <+input>
                           body: <+input>
           tags: {}
+      - stage:
+          name: stg5
+          identifier: stg5
+          template:
+            templateRef: stageTemplate_diffRepo_feature
+            versionLabel: v9879
+            gitBranch: feature1
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+                execution:
+                  steps:
+                    - step:
+                        identifier: step1_feature_samerepo
+                        template:
+                          templateInputs:
+                            type: ShellScriptProvision
+                            spec:
+                              source:
+                                type: Inline
+                                spec:
+                                  script: <+input>
