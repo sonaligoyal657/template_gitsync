@@ -2,25 +2,40 @@ pipeline:
   name: pipeline_1_repo1_default
   identifier: pipeline_1_repo1_default
   template:
-    templateRef: pipelineTemplate_feature_a
-    versionLabel: s
-    gitBranch: main_test
+    templateRef: remote_default_gitsync
+    versionLabel: vb
     templateInputs:
       stages:
         - stage:
-            identifier: stg1
+            identifier: stgTemplate
             template:
               templateInputs:
-                type: Deployment
+                type: Approval
                 spec:
-                  service:
-                    serviceRef: <+input>
-                    serviceInputs: <+input>
-                  environment:
-                    environmentRef: <+input>
-                    environmentInputs: <+input>
-                    serviceOverrideInputs: <+input>
-                    infrastructureDefinitions: <+input>
+                  execution:
+                    steps:
+                      - step:
+                          identifier: step2
+                          template:
+                            templateInputs:
+                              type: Email
+                              spec:
+                                to: <+input>
+                                body: <+input>
+        - stage:
+            identifier: stg1
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: stepTemplate
+                      template:
+                        templateInputs:
+                          type: Email
+                          spec:
+                            to: <+input>
+                            body: <+input>
   tags: {}
   projectIdentifier: Jira
   orgIdentifier: default
