@@ -9,18 +9,31 @@ template:
   spec:
     stages:
       - stage:
-          name: stg1
-          identifier: stg1
-          description: ""
-          type: Custom
-          spec:
-            execution:
-              steps:
-                - step:
-                    name: step1
-                    identifier: step1
-                    template:
-                      templateRef: stepTemplate
-                      versionLabel: v12
-                      gitBranch: main
-          tags: {}
+          name: stg5678
+          identifier: stg5678
+          template:
+            templateRef: testcypress1
+            versionLabel: d
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+                execution:
+                  steps:
+                    - step:
+                        identifier: step1
+                        template:
+                          templateInputs:
+                            type: ShellScript
+                            spec:
+                              source:
+                                type: Inline
+                                spec:
+                                  script: <+input>
