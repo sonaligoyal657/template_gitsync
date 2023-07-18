@@ -1,0 +1,26 @@
+template:
+  name: temp12
+  identifier: temp12
+  versionLabel: f
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: step1
+                    identifier: step1
+                    template:
+                      templateRef: stepTemplate
+                      versionLabel: v12
+                      gitBranch: main
+          tags: {}
