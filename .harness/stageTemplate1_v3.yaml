@@ -21,4 +21,10 @@ template:
                   spec:
                     to: <+input>
                     body: <+input>
+          - step:
+              name: snowtemplate
+              identifier: snowtemplate
+              template:
+                templateRef: snow9087
+                versionLabel: "9087"
   versionLabel: v3
