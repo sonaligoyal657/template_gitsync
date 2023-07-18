@@ -36,6 +36,13 @@ template:
                 templateRef: stepTemplate
                 versionLabel: v12
                 gitBranch: main
+                templateInputs:
+                  type: ShellScript
+                  spec:
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
         rollbackSteps:
           - step:
               name: Rollback Rollout Deployment
