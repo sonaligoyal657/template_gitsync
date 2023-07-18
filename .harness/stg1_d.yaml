@@ -1,0 +1,59 @@
+template:
+  name: testcypress1
+  identifier: testcypress1
+  versionLabel: d
+  type: Stage
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Deployment
+    spec:
+      deploymentType: Kubernetes
+      service:
+        serviceRef: <+input>
+        serviceInputs: <+input>
+      environment:
+        environmentRef: <+input>
+        deployToAll: false
+        environmentInputs: <+input>
+        serviceOverrideInputs: <+input>
+        infrastructureDefinitions: <+input>
+      execution:
+        steps:
+          - step:
+              name: Rollout Deployment
+              identifier: rolloutDeployment
+              type: K8sRollingDeploy
+              timeout: 10m
+              spec:
+                skipDryRun: false
+                pruningEnabled: false
+          - step:
+              name: step1
+              identifier: step1
+              template:
+                templateRef: stepTemplate
+                versionLabel: v12
+                gitBranch: main
+                templateInputs:
+                  type: ShellScript
+                  spec:
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
+        rollbackSteps:
+          - step:
+              name: Rollback Rollout Deployment
+              identifier: rollbackRolloutDeployment
+              type: K8sRollingRollback
+              timeout: 10m
+              spec:
+                pruningEnabled: false
+    failureStrategies:
+      - onFailure:
+          errors:
+            - AllErrors
+          action:
+            type: StageRollback
