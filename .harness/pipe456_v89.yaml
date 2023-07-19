@@ -1,0 +1,17 @@
+template:
+  name: pipe456
+  identifier: pipe456
+  versionLabel: v89
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: d
+          identifier: d
+          template:
+            templateRef: sd
+            versionLabel: fdc
+            gitBranch: main_test
