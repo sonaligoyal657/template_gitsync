@@ -44,3 +44,16 @@ template:
                   - name: fc
                     type: String
                     value: fc
+          - step:
+              name: step1
+              identifier: step1
+              template:
+                templateRef: step123
+                versionLabel: dc
+                templateInputs:
+                  type: ShellScript
+                  spec:
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
