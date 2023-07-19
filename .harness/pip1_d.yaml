@@ -42,3 +42,20 @@ template:
                   environmentRef: <+input>
                   environmentInputs: <+input>
                   infrastructureDefinitions: <+input>
+      - stage:
+          name: stg3
+          identifier: stg3
+          template:
+            templateRef: testcypress1
+            versionLabel: d
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
