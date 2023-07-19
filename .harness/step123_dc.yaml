@@ -1,0 +1,20 @@
+template:
+  name: step123
+  identifier: step123
+  versionLabel: dc
+  type: Step
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    timeout: 10m
+    type: ShellScript
+    spec:
+      shell: Bash
+      onDelegate: true
+      source:
+        type: Inline
+        spec:
+          script: <+input>
+      environmentVariables: []
+      outputVariables: []
