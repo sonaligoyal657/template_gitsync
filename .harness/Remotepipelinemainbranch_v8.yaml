@@ -92,6 +92,16 @@ template:
                   environmentInputs: <+input>
                   serviceOverrideInputs: <+input>
                   infrastructureDefinitions: <+input>
+                execution:
+                  steps:
+                    - step:
+                        identifier: jira
+                        template:
+                          templateInputs:
+                            type: JiraApproval
+                            spec:
+                              connectorRef: <+input>
+                              issueKey: <+input>.default(story).allowedValues(test,story)
               variables:
                 - name: avc
                   type: String
@@ -112,21 +122,4 @@ template:
                 environment:
                   environmentRef: <+input>
                   environmentInputs: <+input>
-                  infrastructureDefinitions: <+input>
-      - stage:
-          name: stg5
-          identifier: stg5
-          template:
-            templateRef: testcypress1
-            versionLabel: d
-            templateInputs:
-              type: Deployment
-              spec:
-                service:
-                  serviceRef: <+input>
-                  serviceInputs: <+input>
-                environment:
-                  environmentRef: <+input>
-                  environmentInputs: <+input>
-                  serviceOverrideInputs: <+input>
                   infrastructureDefinitions: <+input>
