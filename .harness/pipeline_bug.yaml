@@ -22,3 +22,57 @@ pipeline:
                       type: Http
                       spec:
                         url: <+input>
+    - stage:
+        name: dpeloyStg
+        identifier: dpeloyStg
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: <+input>
+            serviceInputs: <+input>
+          environments:
+            metadata:
+              parallel: true
+            values:
+              - environmentRef: account.deployEnv
+                environmentInputs:
+                  identifier: deployEnv
+                  type: PreProduction
+                  variables:
+                    - name: envVar
+                      type: String
+                      value: <+input>
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: delegateInfra1
+                    inputs:
+                      identifier: delegateInfra1
+                      type: KubernetesDirect
+                      spec:
+                        namespace: <+input>
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    onDelegate: true
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+            rollbackSteps: []
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
