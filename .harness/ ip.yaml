@@ -1,0 +1,37 @@
+inputSet:
+  name: "   ip"
+  identifier: ip
+  orgIdentifier: default
+  projectIdentifier: Jira
+  pipeline:
+    identifier: fv
+    template:
+      templateInputs:
+        stages:
+          - parallel:
+              - stage:
+                  identifier: Deploy_To_Dev
+                  type: Deployment
+                  spec:
+                    services:
+                      values: <+input>
+                    environments:
+                      values:
+                        - environmentRef: account.Dev
+                          deployToAll: <+input>
+                          infrastructureDefinitions: <+input>
+              - stage:
+                  identifier: Deploy_to_Dev_Helm
+                  type: Deployment
+                  spec:
+                    environments:
+                      values:
+                        - environmentRef: account.Dev
+                          deployToAll: <+input>
+                          infrastructureDefinitions: <+input>
+                    services:
+                      values: <+input>
+        variables:
+          - name: cluster_name
+            type: String
+            value: df
