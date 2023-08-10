@@ -1,0 +1,22 @@
+inputSet:
+  name: junk
+  identifier: junk
+  orgIdentifier: default
+  projectIdentifier: Jira
+  pipeline:
+    identifier: test_1
+    stages:
+      - stage:
+          identifier: stg1
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: ShellScript_1
+                    type: ShellScript
+                    spec:
+                      source:
+                        type: Inline
+                        spec:
+                          script: <+input>
