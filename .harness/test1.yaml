@@ -153,6 +153,19 @@ pipeline:
                     templateRef: org.RemoteOrgStepSept27
                     versionLabel: v1
                     gitBranch: main2-patch3
+              - step:
+                  name: template
+                  identifier: template
+                  template:
+                    templateRef: stepTemplate123
+                    versionLabel: c
+                    templateInputs:
+                      type: ShellScript
+                      spec:
+                        source:
+                          type: Inline
+                          spec:
+                            script: <+input>
         tags: {}
     - stage:
         name: stg8900
