@@ -100,19 +100,27 @@ pipeline:
         name: differentrepodifferentbrsnch
         identifier: differentrepodifferentbrsnch
         template:
-          templateRef: account.stgtempgit
-          versionLabel: "1"
-          gitBranch: fardeen
+          templateRef: rdes
+          versionLabel: f
           templateInputs:
             type: Deployment
             spec:
+              environment:
+                infrastructureDefinitions:
+                  - identifier: in
+                    inputs:
+                      identifier: in
+                      type: SshWinRmAws
+                      spec:
+                        credentialsRef: <+input>
+                        connectorRef: <+input>
+                        region: <+input>
+                        awsInstanceFilter:
+                          tags: <+input>
+                        provisioner: <+input>
               service:
                 serviceRef: <+input>
                 serviceInputs: <+input>
-              environment:
-                environmentRef: <+input>
-                environmentInputs: <+input>
-                infrastructureDefinitions: <+input>
     - stage:
         name: differentrepo_branchnamesame
         identifier: differentrepo_branchnamesame
