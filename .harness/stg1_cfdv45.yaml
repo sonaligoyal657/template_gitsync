@@ -1,0 +1,82 @@
+template:
+  name: stg1_cfd
+  identifier: stg1_cfd
+  versionLabel: v45
+  type: Stage
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Approval
+    spec:
+      execution:
+        steps:
+          - step:
+              type: CustomApproval
+              name: step1
+              identifier: step1
+              timeout: 1d
+              spec:
+                shell: Bash
+                retryInterval: 10s
+                scriptTimeout: 10m
+                source:
+                  type: Inline
+                  spec:
+                    script: echo 'hello world'
+                environmentVariables: []
+                approvalCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions:
+                      - key: test
+                        operator: equals
+                        value: abc
+                rejectionCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: false
+                    conditions: []
+                onDelegate: true
+                outputVariables:
+                  - name: test
+                    type: String
+                    value: abc
+              when:
+                stageStatus: Success
+          - step:
+              type: CustomApproval
+              name: CustomApproval_2
+              identifier: CustomApproval_2
+              spec:
+                rejectionCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: true
+                    conditions: []
+                approvalCriteria:
+                  type: KeyValues
+                  spec:
+                    matchAnyCondition: true
+                    conditions:
+                      - key: out
+                        operator: equals
+                        value: put
+                scriptTimeout: 10m
+                retryInterval: 1m
+                shell: Bash
+                onDelegate: true
+                source:
+                  type: Inline
+                  spec:
+                    script: |
+                      echo 'test'
+                environmentVariables: []
+                outputVariables:
+                  - name: out
+                    type: String
+                    value: put
+              when:
+                stageStatus: Failure
+              timeout: 1d
