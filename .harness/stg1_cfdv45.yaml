@@ -71,7 +71,7 @@ template:
                   type: Inline
                   spec:
                     script: |
-                      echo 'testabc'
+                      echo 'swedrftgyhujknbhvgcfxdzsdxfcgvhb'
                 environmentVariables: []
                 outputVariables:
                   - name: out
