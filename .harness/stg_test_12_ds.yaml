@@ -1,0 +1,26 @@
+template:
+  name: stg_test_12
+  identifier: stg_test_12
+  versionLabel: ds
+  type: Stage
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              name: frdews
+              identifier: frdews
+              template:
+                templateRef: step_template_main
+                gitBranch: main
+                templateInputs:
+                  type: ShellScript
+                  spec:
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
