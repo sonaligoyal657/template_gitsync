@@ -1,0 +1,27 @@
+template:
+  name: stageTemplate_nondefault
+  identifier: stageTemplate_nondefault
+  versionLabel: testV1
+  type: Stage
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              name: step1
+              identifier: step1
+              template:
+                templateRef: step_template_main
+                versionLabel: v56
+                gitBranch: main
+                templateInputs:
+                  type: ShellScript
+                  spec:
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
