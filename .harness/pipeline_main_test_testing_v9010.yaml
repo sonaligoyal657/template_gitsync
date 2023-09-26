@@ -29,36 +29,6 @@ template:
                             spec:
                               script: <+input>
       - stage:
-          name: stg2
-          identifier: stg2
-          template:
-            templateRef: account.azureStage
-            versionLabel: "1"
-            templateInputs:
-              type: Deployment
-              spec:
-                environment:
-                  environmentRef: <+input>
-                  environmentInputs: <+input>
-                  serviceOverrideInputs: <+input>
-                  infrastructureDefinitions: <+input>
-                service:
-                  serviceInputs:
-                    serviceDefinition:
-                      type: WinRm
-                      spec:
-                        artifacts:
-                          primary:
-                            sources:
-                              - identifier: az
-                                type: AzureArtifacts
-                                spec:
-                                  connectorRef: <+input>
-                                  project: <+input>
-                                  feed: <+input>
-                                  package: <+input>
-                                  version: <+input>
-      - stage:
           name: stg3
           identifier: stg3
           description: ""
