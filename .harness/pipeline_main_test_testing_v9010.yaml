@@ -28,3 +28,56 @@ template:
                             type: Inline
                             spec:
                               script: <+input>
+      - stage:
+          name: stg2
+          identifier: stg2
+          template:
+            templateRef: account.azureStage
+            versionLabel: "1"
+            templateInputs:
+              type: Deployment
+              spec:
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+                service:
+                  serviceInputs:
+                    serviceDefinition:
+                      type: WinRm
+                      spec:
+                        artifacts:
+                          primary:
+                            sources:
+                              - identifier: az
+                                type: AzureArtifacts
+                                spec:
+                                  connectorRef: <+input>
+                                  project: <+input>
+                                  feed: <+input>
+                                  package: <+input>
+                                  version: <+input>
+      - stage:
+          name: stg3
+          identifier: stg3
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    name: step1
+                    identifier: step1
+                    template:
+                      templateRef: org.Cloudformation_Create_Stack
+                      versionLabel: v2
+                      templateInputs:
+                        type: CreateStack
+                        spec:
+                          provisionerIdentifier: <+input>
+                          configuration:
+                            connectorRef: <+input>
+                        when:
+                          condition: <+input>
+          tags: {}
