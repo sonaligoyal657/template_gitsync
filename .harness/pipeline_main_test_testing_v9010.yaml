@@ -1,0 +1,30 @@
+template:
+  name: pipeline_main_test_testing
+  identifier: pipeline_main_test_testing
+  versionLabel: v9010
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1_1
+          identifier: stg1_1
+          template:
+            templateRef: stgTemplate_main
+            versionLabel: v09090
+            gitBranch: main
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: ShellScript_1
+                        type: ShellScript
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
