@@ -1,0 +1,7 @@
+environment:
+  name: test1_remote
+  identifier: test1_remote
+  accountId: px7xd_BFRCi-pfWPYXVjvw
+  orgIdentifier: default
+  projectIdentifier: Jira
+  type: PreProduction
