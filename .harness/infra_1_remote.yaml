@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: infra_1_remote
+  identifier: infra_1_remote
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: test1_inline
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: account.tck8s
+    namespace: default
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
