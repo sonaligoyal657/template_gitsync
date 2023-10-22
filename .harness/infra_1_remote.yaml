@@ -2,6 +2,9 @@ infrastructureDefinition:
   name: infra_1_remote
   identifier: infra_1_remote
   description: testdescription
+  tags:
+    tag1: ""
+    tag2: ""
   orgIdentifier: default
   projectIdentifier: Jira
   environmentRef: test1_inline
