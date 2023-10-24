@@ -1,0 +1,14 @@
+infrastructureDefinition:
+  name: test1234
+  identifier: test1234
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: env1_remote_project
+  deploymentType: NativeHelm
+  type: KubernetesGcp
+  spec:
+    connectorRef: account.jkcavhksjvhjkashvbkajalisgcuiudufgwewfbiejcffbi
+    cluster: <+input>
+    namespace: default
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
