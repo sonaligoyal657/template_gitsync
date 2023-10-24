@@ -3,3 +3,21 @@ service:
   identifier: remotes1
   orgIdentifier: default
   projectIdentifier: Jira
+  serviceDefinition:
+    spec:
+      manifests:
+        - manifest:
+            identifier: manifest1
+            type: K8sManifest
+            spec:
+              store:
+                type: Git
+                spec:
+                  connectorRef: Git_Connector_Demo
+                  gitFetchType: Branch
+                  paths:
+                    - dc
+                  branch: des
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
+    type: Kubernetes
