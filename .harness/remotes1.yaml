@@ -16,7 +16,7 @@ service:
                   connectorRef: Git_Connector_Demo
                   gitFetchType: Branch
                   paths:
-                    - dc
+                    - ./
                   branch: des
               skipResourceVersioning: false
               enableDeclarativeRollback: false
