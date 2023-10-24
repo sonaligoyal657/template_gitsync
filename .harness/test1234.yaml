@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: test1234_12345
+  name: test1234_12345redw
   identifier: test1234
   orgIdentifier: default
   projectIdentifier: Jira
@@ -9,6 +9,6 @@ infrastructureDefinition:
   spec:
     connectorRef: account.jkcavhksjvhjkashvbkajalisgcuiudufgwewfbiejcffbi
     cluster: <+input>
-    namespace: default
+    namespace: default123
     releaseName: release-<+INFRA_KEY_SHORT_ID>
   allowSimultaneousDeployments: false
