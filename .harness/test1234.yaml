@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: test1234_12345redw
+  name: test1234_12345
   identifier: test1234
   orgIdentifier: default
   projectIdentifier: Jira
