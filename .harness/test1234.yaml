@@ -9,6 +9,6 @@ infrastructureDefinition:
   spec:
     connectorRef: account.jkcavhksjvhjkashvbkajalisgcuiudufgwewfbiejcffbi
     cluster: <+input>
-    namespace: default123
+    namespace: default123ewq
     releaseName: release-<+INFRA_KEY_SHORT_ID>
   allowSimultaneousDeployments: false
