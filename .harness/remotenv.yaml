@@ -1,0 +1,7 @@
+environment:
+  name: remotenv
+  identifier: remotenv
+  accountId: qZ4zuEEHRrO7qGV_RtDYxg
+  orgIdentifier: default
+  projectIdentifier: TestInfraGitx
+  type: PreProduction
