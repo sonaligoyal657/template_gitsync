@@ -11,4 +11,4 @@ infrastructureDefinition:
       templateRef: template2_custom
       versionLabel: v10
     variables: []
-  allowSimultaneousDeployments: false
+  allowSimultaneousDeployments: true
