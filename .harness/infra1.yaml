@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: infra11234
+  name: infra11234_123
   identifier: infra1
   orgIdentifier: default
   projectIdentifier: TestInfraGitx
