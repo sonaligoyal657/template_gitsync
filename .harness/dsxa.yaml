@@ -1,0 +1,14 @@
+infrastructureDefinition:
+  name: dsxa
+  identifier: dsxa
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: test1_remote
+  deploymentType: CustomDeployment
+  type: CustomDeployment
+  spec:
+    customDeploymentRef:
+      templateRef: template2_custom
+      versionLabel: v10
+    variables: []
+  allowSimultaneousDeployments: false
