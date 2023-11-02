@@ -28,3 +28,48 @@ pipeline:
                     outputVariables: []
                   timeout: 10m
         tags: {}
+    - stage:
+        name: stg2
+        identifier: stg2
+        description: ""
+        type: Deployment
+        spec:
+          deploymentType: Kubernetes
+          service:
+            serviceRef: <+input>
+            serviceInputs: <+input>
+          environment:
+            environmentRef: KubernetesEnvdemo
+            deployToAll: false
+            infrastructureDefinitions:
+              - identifier: kubernetsInfraDemo
+                inputs:
+                  identifier: kubernetsInfraDemo
+                  type: KubernetesDirect
+                  spec:
+                    connectorRef: <+input>
+          execution:
+            steps:
+              - step:
+                  name: Rollout Deployment
+                  identifier: rolloutDeployment
+                  type: K8sRollingDeploy
+                  timeout: 10m
+                  spec:
+                    skipDryRun: false
+                    pruningEnabled: false
+            rollbackSteps:
+              - step:
+                  name: Rollback Rollout Deployment
+                  identifier: rollbackRolloutDeployment
+                  type: K8sRollingRollback
+                  timeout: 10m
+                  spec:
+                    pruningEnabled: false
+        tags: {}
+        failureStrategies:
+          - onFailure:
+              errors:
+                - AllErrors
+              action:
+                type: StageRollback
