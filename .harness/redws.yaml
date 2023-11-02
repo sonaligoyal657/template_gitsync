@@ -43,11 +43,6 @@ pipeline:
             deployToAll: false
             infrastructureDefinitions:
               - identifier: kubernetsInfraDemo
-                inputs:
-                  identifier: kubernetsInfraDemo
-                  type: KubernetesDirect
-                  spec:
-                    connectorRef: <+input>
           execution:
             steps:
               - step:
@@ -92,7 +87,6 @@ pipeline:
                   identifier: inlineinfra123
                   type: KubernetesDirect
                   spec:
-                    connectorRef: <+input>
                     namespace: <+input>
           execution:
             steps:
