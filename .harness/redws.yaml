@@ -41,8 +41,7 @@ pipeline:
           environment:
             environmentRef: KubernetesEnvdemo
             deployToAll: false
-            infrastructureDefinitions:
-              - identifier: kubernetsInfraDemo
+            infrastructureDefinitions: <+input>
           execution:
             steps:
               - step:
