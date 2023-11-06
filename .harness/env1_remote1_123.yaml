@@ -1,0 +1,7 @@
+environment:
+  name: env1_remote1_123
+  identifier: env1_remote1_123
+  accountId: px7xd_BFRCi-pfWPYXVjvw
+  orgIdentifier: default
+  projectIdentifier: Jira
+  type: PreProduction
