@@ -16,16 +16,11 @@ pipeline:
             serviceRef: <+input>
             serviceInputs: <+input>
           environment:
-            environmentRef: env2_remote_nondefaultbranch
+            environmentRef: <+input>
             deployToAll: false
-            infrastructureDefinitions:
-              - identifier: infra2_remote_nondefaultbrnach
-                inputs:
-                  identifier: infra2_remote_nondefaultbrnach
-                  type: KubernetesDirect
-                  spec:
-                    connectorRef: <+input>
-                    namespace: <+input>
+            environmentInputs: <+input>
+            serviceOverrideInputs: <+input>
+            infrastructureDefinitions: <+input>
           execution:
             steps:
               - step:
