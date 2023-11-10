@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: infra12345678
+  identifier: infra12345678
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: env2_remote_nondefaultbranch
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: sdfcgv
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
