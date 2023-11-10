@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: rftgyhu
+  identifier: rftgyhu
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: env2_remote_nondefaultbranch
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: drftgyh
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
