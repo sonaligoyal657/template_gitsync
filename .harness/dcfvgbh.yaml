@@ -56,12 +56,6 @@ pipeline:
           service:
             serviceRef: <+input>
             serviceInputs: <+input>
-          environment:
-            environmentRef: <+input>
-            deployToAll: false
-            environmentInputs: <+input>
-            serviceOverrideInputs: <+input>
-            infrastructureDefinitions: <+input>
           execution:
             steps:
               - step:
@@ -80,6 +74,25 @@ pipeline:
                   timeout: 10m
                   spec:
                     pruningEnabled: false
+          environments:
+            metadata:
+              parallel: true
+            values:
+              - environmentRef: env2_remote_nondefaultbranch
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: infra2_remote_nondefaultbrnach
+                    inputs:
+                      identifier: infra2_remote_nondefaultbrnach
+                      type: KubernetesDirect
+                      spec:
+                        connectorRef: <+input>
+                        namespace: <+input>
+              - environmentRef: account.env_acc_remote_Qa
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: infra_remote
+                  - identifier: infra1_inlin_e
         tags: {}
         failureStrategies:
           - onFailure:
