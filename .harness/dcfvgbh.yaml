@@ -34,11 +34,10 @@ pipeline:
                   spec:
                     pruningEnabled: false
           environment:
-            environmentRef: <+input>
+            environmentRef: org.env1_remote
             deployToAll: false
-            environmentInputs: <+input>
-            serviceOverrideInputs: <+input>
-            infrastructureDefinitions: <+input>
+            infrastructureDefinitions:
+              - identifier: infra123_remote
         tags: {}
         failureStrategies:
           - onFailure:
@@ -77,22 +76,7 @@ pipeline:
           environments:
             metadata:
               parallel: true
-            values:
-              - environmentRef: env2_remote_nondefaultbranch
-                deployToAll: false
-                infrastructureDefinitions:
-                  - identifier: infra2_remote_nondefaultbrnach
-                    inputs:
-                      identifier: infra2_remote_nondefaultbrnach
-                      type: KubernetesDirect
-                      spec:
-                        connectorRef: <+input>
-                        namespace: <+input>
-              - environmentRef: account.env_acc_remote_Qa
-                deployToAll: false
-                infrastructureDefinitions:
-                  - identifier: infra_remote
-                  - identifier: infra1_inlin_e
+            values: <+input>
         tags: {}
         failureStrategies:
           - onFailure:
