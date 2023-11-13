@@ -76,7 +76,31 @@ pipeline:
           environments:
             metadata:
               parallel: true
-            values: <+input>
+            values:
+              - environmentRef: env1_remote_project
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: inlineInfra12345
+                    inputs:
+                      identifier: inlineInfra12345
+                      type: KubernetesDirect
+                      spec:
+                        connectorRef: <+input>
+                  - identifier: infra2_inline
+                    inputs:
+                      identifier: infra2_inline
+                      type: KubernetesDirect
+                      spec:
+                        connectorRef: <+input>
+                        namespace: <+input>
+              - environmentRef: env2_remote_nondefaultbranch
+                deployToAll: true
+                infrastructureDefinitions: <+input>
+              - environmentRef: account.env_acc_remote_Qa
+                deployToAll: false
+                infrastructureDefinitions:
+                  - identifier: infra1_inlin_e
+                  - identifier: infra_remote
         tags: {}
         failureStrategies:
           - onFailure:
