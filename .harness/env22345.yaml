@@ -1,0 +1,8 @@
+environment:
+  name: env22345
+  identifier: env22345
+  description: ""
+  tags: {}
+  type: PreProduction
+  orgIdentifier: default
+  projectIdentifier: Jira
