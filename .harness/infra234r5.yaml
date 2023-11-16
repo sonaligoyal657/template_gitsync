@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: torft
+  name: test1234
   identifier: infra234r5
   orgIdentifier: default
   projectIdentifier: Jira
@@ -8,6 +8,6 @@ infrastructureDefinition:
   type: KubernetesDirect
   spec:
     connectorRef: <+input>
-    namespace: trews
+    namespace: default
     releaseName: release-<+INFRA_KEY_SHORT_ID>
   allowSimultaneousDeployments: false
