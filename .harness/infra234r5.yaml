@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: infra234r5
+  identifier: infra234r5
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: env22345
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: <+input>
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
