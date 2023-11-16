@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: infra23456789
+  name: testInfra
   identifier: infra23456789
   orgIdentifier: default
   projectIdentifier: Jira
@@ -8,6 +8,6 @@ infrastructureDefinition:
   type: KubernetesDirect
   spec:
     connectorRef: <+input>
-    namespace: namespacetest1234567
+    namespace: default
     releaseName: release-<+INFRA_KEY_SHORT_ID>
   allowSimultaneousDeployments: false
