@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: frdeswdfrgt
+  name: testlast
   identifier: infra234r5
   orgIdentifier: default
   projectIdentifier: Jira
@@ -8,6 +8,6 @@ infrastructureDefinition:
   type: KubernetesDirect
   spec:
     connectorRef: <+input>
-    namespace: default
+    namespace: <+input>
     releaseName: release-<+INFRA_KEY_SHORT_ID>
   allowSimultaneousDeployments: false
