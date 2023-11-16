@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: infra23456789
+  identifier: infra23456789
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: rfedws
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: fedwsqa
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
