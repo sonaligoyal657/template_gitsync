@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: testlast
+  name: torft
   identifier: infra234r5
   orgIdentifier: default
   projectIdentifier: Jira
