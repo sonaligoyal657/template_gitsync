@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: REWQ
+  identifier: REWQ
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: env2_remote_nondefaultbranch
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: ertygtfds
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
