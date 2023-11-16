@@ -1,0 +1,7 @@
+environment:
+  name: rfedws
+  identifier: rfedws
+  accountId: px7xd_BFRCi-pfWPYXVjvw
+  orgIdentifier: default
+  projectIdentifier: Jira
+  type: PreProduction
