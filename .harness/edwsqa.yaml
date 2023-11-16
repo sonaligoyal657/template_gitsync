@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: infrastructure1234567712
+  name: testinginfra
   identifier: edwsqa
   orgIdentifier: default
   projectIdentifier: Jira
