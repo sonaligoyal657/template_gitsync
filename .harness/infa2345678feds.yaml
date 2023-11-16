@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: infa2345678feds
+  identifier: infa2345678feds
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: env1_remote_default_1
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: gtfrdeswaqswdefrgt
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
