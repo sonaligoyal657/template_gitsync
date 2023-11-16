@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: fdesw
+  identifier: fdesw
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: env2_remote_nondefaultbranch
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: fvdsa
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
