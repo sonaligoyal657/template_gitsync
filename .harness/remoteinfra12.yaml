@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: TESTrEMOTEINFRA
+  name: infrastructure12345
   identifier: remoteinfra12
   orgIdentifier: default
   projectIdentifier: Jira
@@ -8,6 +8,6 @@ infrastructureDefinition:
   type: KubernetesDirect
   spec:
     connectorRef: <+input>
-    namespace: deafult
+    namespace: <+input>
     releaseName: release-<+INFRA_KEY_SHORT_ID>
   allowSimultaneousDeployments: false
