@@ -31,8 +31,11 @@ template:
                 source:
                   type: Inline
                   spec:
-                    script: fds
-                environmentVariables: []
+                    script: <+input>
+                environmentVariables:
+                  - name: cdxs
+                    type: String
+                    value: <+input>
                 outputVariables: []
               timeout: 10m
         rollbackSteps:
