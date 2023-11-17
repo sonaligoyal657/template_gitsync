@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: insdfg
+  identifier: insdfg
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: rfedws
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: fghbjnm
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
