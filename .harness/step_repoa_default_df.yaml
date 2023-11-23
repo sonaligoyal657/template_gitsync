@@ -11,6 +11,6 @@ template:
     timeout: 10m
     spec:
       to: <+input>
-      cc: <+input>
+      cc: ""
       subject: fedsa
       body: <+input>
