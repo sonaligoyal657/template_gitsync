@@ -21,4 +21,5 @@ template:
                   type: Email
                   spec:
                     to: <+input>
+                    cc: <+input>
                     body: <+input>
