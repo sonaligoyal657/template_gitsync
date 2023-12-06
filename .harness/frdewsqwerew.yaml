@@ -1,0 +1,56 @@
+inputSet:
+  name: frdewsqwerew
+  identifier: frdewsqwerew
+  orgIdentifier: default
+  projectIdentifier: Jira
+  pipeline:
+    identifier: Pipeline1
+    stages:
+      - stage:
+          identifier: stg1
+          type: Deployment
+          spec:
+            service:
+              serviceRef: <+input>
+              serviceInputs: <+input>
+            environment:
+              infrastructureDefinitions:
+                - identifier: infra1_remote_default1
+                  inputs:
+                    identifier: infra1_remote_default1
+                    type: KubernetesDirect
+                    spec:
+                      connectorRef: <+input>
+                      namespace: <+input>
+      - stage:
+          identifier: stg2
+          type: Deployment
+          spec:
+            service:
+              serviceRef: <+input>
+              serviceInputs: <+input>
+            environment:
+              infrastructureDefinitions:
+                - identifier: infra1_remote_default1
+                  inputs:
+                    identifier: infra1_remote_default1
+                    type: KubernetesDirect
+                    spec:
+                      connectorRef: <+input>
+                      namespace: <+input>
+      - stage:
+          identifier: stg3
+          type: Deployment
+          spec:
+            service:
+              serviceRef: <+input>
+              serviceInputs: <+input>
+            environment:
+              infrastructureDefinitions:
+                - identifier: infra2_remote_nondefaultbrnach
+                  inputs:
+                    identifier: infra2_remote_nondefaultbrnach
+                    type: KubernetesDirect
+                    spec:
+                      connectorRef: <+input>
+                      namespace: <+input>
