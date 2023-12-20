@@ -1,0 +1,147 @@
+inputSet:
+  name: desw
+  identifier: desw
+  orgIdentifier: default
+  projectIdentifier: Jira
+  pipeline:
+    identifier: test1
+    stages:
+      - stage:
+          identifier: stg1
+          type: Deployment
+          spec:
+            service:
+              serviceRef: <+input>
+              serviceInputs: <+input>
+            environment:
+              environmentRef: <+input>
+              environmentInputs: <+input>
+              serviceOverrideInputs: <+input>
+              infrastructureDefinitions: <+input>
+            execution:
+              steps:
+                - step:
+                    identifier: dft
+                    template:
+                      templateInputs:
+                        type: ShellScriptProvision
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
+                - step:
+                    identifier: s
+                    template:
+                      templateInputs:
+                        type: Email
+                        spec:
+                          to: <+input>
+                          body: <+input>
+      - stage:
+          identifier: samerepo_differentbranch
+          template:
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+                execution:
+                  steps:
+                    - step:
+                        identifier: ShellScript_1
+                        type: ShellScript
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
+      - stage:
+          identifier: differentrepodifferentbrsnch
+          template:
+            templateInputs:
+              type: Deployment
+              spec:
+                environment:
+                  infrastructureDefinitions:
+                    - identifier: in
+                      inputs:
+                        identifier: in
+                        type: SshWinRmAws
+                        spec:
+                          credentialsRef: <+input>
+                          connectorRef: <+input>
+                          region: <+input>
+                          awsInstanceFilter:
+                            tags: <+input>
+                          provisioner: <+input>
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+      - stage:
+          identifier: differentrepo_branchnamesame
+          template:
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+      - stage:
+          identifier: sdr
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: template
+                    template:
+                      templateInputs:
+                        type: ShellScript
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
+      - stage:
+          identifier: stg8900
+          template:
+            templateInputs:
+              type: Deployment
+              spec:
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+                execution:
+                  steps:
+                    - step:
+                        identifier: ShellScript_1
+                        type: ShellScript
+                        spec:
+                          source:
+                            type: Inline
+                            spec:
+                              script: <+input>
+  provider:
+    type: Others
+    title: Third-party Git provider
+    info: Store pipeline in a third party Git provider
+    icon: service-github
+    size: 20
+    disabled: false
