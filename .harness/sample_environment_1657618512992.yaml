@@ -1,0 +1,23 @@
+environment:
+  name: sample_environment
+  identifier: sample_environment_1657618512992
+  description: ""
+  tags: {}
+  type: PreProduction
+  orgIdentifier: default
+  projectIdentifier: Jira
+  overrides:
+    manifests:
+      - manifest:
+          identifier: drt
+          type: Values
+          spec:
+            store:
+              type: Git
+              spec:
+                connectorRef: <+input>
+                gitFetchType: Branch
+                paths:
+                  - fdgt
+                repoName: <+input>
+                branch: rd
