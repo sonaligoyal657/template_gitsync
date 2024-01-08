@@ -1,0 +1,6 @@
+overrides:
+  variables:
+    - name: gfd
+      type: String
+      value: vfcdxs
+      required: false
