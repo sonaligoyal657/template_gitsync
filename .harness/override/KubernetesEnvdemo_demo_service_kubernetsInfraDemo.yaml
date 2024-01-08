@@ -1,0 +1,6 @@
+overrides:
+  variables:
+    - name: car1
+      type: String
+      value: fredws
+      required: false
