@@ -1,0 +1,6 @@
+overrides:
+  variables:
+    - name: fds
+      type: String
+      value: var23
+      required: false
