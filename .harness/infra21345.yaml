@@ -1,0 +1,13 @@
+infrastructureDefinition:
+  name: infra21345
+  identifier: infra21345
+  orgIdentifier: default
+  projectIdentifier: Jira
+  environmentRef: rfedws
+  deploymentType: Kubernetes
+  type: KubernetesDirect
+  spec:
+    connectorRef: <+input>
+    namespace: gfdsa
+    releaseName: release-<+INFRA_KEY_SHORT_ID>
+  allowSimultaneousDeployments: false
