@@ -2,5 +2,5 @@ overrides:
   variables:
     - name: var3
       type: String
-      value: test
+      value: ABC
       required: false
