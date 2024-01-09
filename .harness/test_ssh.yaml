@@ -1,0 +1,7 @@
+environment:
+  name: test_ssh
+  identifier: test_ssh
+  accountId: px7xd_BFRCi-pfWPYXVjvw
+  orgIdentifier: default
+  projectIdentifier: Jira
+  type: PreProduction
