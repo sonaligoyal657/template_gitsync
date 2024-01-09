@@ -1,6 +1,6 @@
 overrides:
   variables:
-    - name: gfd
+    - name: var1
       type: String
-      value: vfcdxs
+      value: test
       required: false
