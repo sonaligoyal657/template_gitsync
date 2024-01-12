@@ -21,7 +21,7 @@ pipeline:
                   variables:
                     - name: var2
                       type: String
-                      value: abc
+                      value: TESTING
           environment:
             environmentRef: remotenv1
             gitBranch: master
