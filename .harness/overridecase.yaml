@@ -1,5 +1,5 @@
 pipeline:
-  name: overridecase
+  name: overridecase1
   identifier: overridecase
   projectIdentifier: Jira
   orgIdentifier: default
