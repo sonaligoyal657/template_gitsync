@@ -55,7 +55,7 @@ pipeline:
                   type: K8sRollingRollback
                   timeout: 10m
                   spec:
-                    pruningEnabled: false
+                    pruningEnabled: true
         tags: {}
         failureStrategies:
           - onFailure:
