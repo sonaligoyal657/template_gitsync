@@ -6,8 +6,8 @@ pipeline:
   tags: {}
   stages:
     - stage:
-        name: stg1_1
-        identifier: stg1_1
+        name: stg1
+        identifier: stg1
         description: ""
         type: Deployment
         spec:
@@ -47,7 +47,7 @@ pipeline:
                   timeout: 10m
                   spec:
                     skipDryRun: false
-                    pruningEnabled: false
+                    pruningEnabled: true
             rollbackSteps:
               - step:
                   name: Rollback Rollout Deployment
