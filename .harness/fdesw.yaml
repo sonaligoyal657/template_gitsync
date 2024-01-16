@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: fdesw
+  name: updateInfraNam
   identifier: fdesw
   orgIdentifier: default
   projectIdentifier: Jira
