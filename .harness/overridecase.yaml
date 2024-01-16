@@ -63,3 +63,25 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+    - stage:
+        name: stg2
+        identifier: stg2
+        tags: {}
+        template:
+          templateRef: winrmssh
+          versionLabel: v1
+          templateInputs:
+            type: Deployment
+            spec:
+              service:
+                serviceInputs:
+                  serviceDefinition:
+                    type: Ssh
+                    spec:
+                      artifacts:
+                        primary:
+                          sources:
+                            - identifier: TodoList
+                              type: ArtifactoryRegistry
+                              spec:
+                                artifactPath: <+input>
