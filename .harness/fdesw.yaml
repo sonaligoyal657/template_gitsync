@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: updateInfraNam
+  name: updateInfraNamdesw
   identifier: fdesw
   orgIdentifier: default
   projectIdentifier: Jira
@@ -8,6 +8,6 @@ infrastructureDefinition:
   type: KubernetesDirect
   spec:
     connectorRef: <+input>
-    namespace: fcdxs
+    namespace: test
     releaseName: release-<+INFRA_KEY_SHORT_ID>
   allowSimultaneousDeployments: false
