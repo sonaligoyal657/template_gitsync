@@ -1,5 +1,5 @@
 infrastructureDefinition:
-  name: insdfg
+  name: updatetest
   identifier: insdfg
   orgIdentifier: default
   projectIdentifier: Jira
