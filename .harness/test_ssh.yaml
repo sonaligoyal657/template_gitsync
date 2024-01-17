@@ -3,7 +3,7 @@ environment:
   identifier: test_ssh
   description: fdsfedsw
   tags:
-    tag1: ""
+    tag1: "fr"
     gf: ""
   type: PreProduction
   orgIdentifier: default
