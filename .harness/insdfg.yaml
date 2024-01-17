@@ -1,6 +1,8 @@
 infrastructureDefinition:
   name: updatetestintesting
   identifier: insdfg
+  tags:
+    tag1: abc
   orgIdentifier: default
   projectIdentifier: Jira
   environmentRef: rfedws
