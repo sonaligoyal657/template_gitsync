@@ -3,6 +3,7 @@ infrastructureDefinition:
   identifier: insdfg
   tags:
     tag1: abc
+    fgh: ""
   orgIdentifier: default
   projectIdentifier: Jira
   environmentRef: rfedws
