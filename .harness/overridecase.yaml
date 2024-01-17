@@ -19,9 +19,9 @@ pipeline:
                 type: Kubernetes
                 spec:
                   variables:
-                    - name: var2
+                    - name: var4
                       type: String
-                      value: TESTING
+                      value: <+input>
           environment:
             environmentRef: test_ssh
             deployToAll: false
