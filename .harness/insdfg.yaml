@@ -4,6 +4,7 @@ infrastructureDefinition:
   tags:
     tag1: abc
     fgh: ""
+    dfg: ""
   orgIdentifier: default
   projectIdentifier: Jira
   environmentRef: rfedws
