@@ -23,21 +23,16 @@ pipeline:
                       type: String
                       value: TESTING
           environment:
-            environmentRef: remotenv1
-            gitBranch: master
-            environmentInputs:
-              variables:
-                - name: var1
-                  type: String
-                  value: <+input>
-            serviceOverrideInputs:
-              variables:
-                - name: var2
-                  type: String
-                  value: <+input>
+            environmentRef: test_ssh
             deployToAll: false
             infrastructureDefinitions:
-              - identifier: infra1
+              - identifier: test56
+                inputs:
+                  identifier: test56
+                  type: KubernetesDirect
+                  spec:
+                    connectorRef: <+input>
+                    namespace: <+input>
           execution:
             steps:
               - step:
