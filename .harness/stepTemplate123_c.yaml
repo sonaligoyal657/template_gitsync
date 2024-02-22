@@ -1,5 +1,5 @@
 template:
-name: stepTemplate123
+  name: stepTemplate123
   identifier: stepTemplate123
   versionLabel: c
   type: Step
@@ -14,7 +14,6 @@ name: stepTemplate123
       onDelegate: true
       source:
         type: Inline
-        spec:
-          script: <+input>
+        spec:script: <+input>
 environmentVariables: []
 outputVariables: []
