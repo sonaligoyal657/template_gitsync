@@ -14,6 +14,7 @@ template:
       onDelegate: true
       source:
         type: Inline
-        spec:script: <+input>
-environmentVariables: []
-outputVariables: []
+        spec:
+          script: <+input>
+  environmentVariables: []
+  outputVariables: []
