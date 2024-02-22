@@ -1,5 +1,5 @@
 inputSet:
-  name: ip1
+name: ip1
   identifier: ip1
   orgIdentifier: default
   projectIdentifier: Jira
