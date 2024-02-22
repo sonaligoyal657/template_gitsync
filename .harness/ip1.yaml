@@ -1,0 +1,22 @@
+inputSet:
+  name: ip1
+  identifier: ip1
+  orgIdentifier: default
+  projectIdentifier: Jira
+  pipeline:
+    identifier: RemoteInvalidInputSetCheck
+    stages:
+      - stage:
+          identifier: stg1
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    identifier: ShellScript_1
+                    type: ShellScript
+                    spec:
+                      source:
+                        type: Inline
+                        spec:
+                          script: test
