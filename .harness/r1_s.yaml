@@ -1,5 +1,5 @@
 service:
   name: r1_s
   identifier: r1_s
-  orgIdentifier: default
-  projectIdentifier: Jira
+orgIdentifier: default
+projectIdentifier: Jira
