@@ -1,14 +1,14 @@
 service:
-  identifier: r1_s
-  name: r1_s
   serviceDefinition:
     spec:
       variables:
-   - name: var1
+        - name: var1
           type: String
           description: ""
           required: false
           value: frde
     type: WinRm
+  identifier: r1_s
+  name: r1_s
   orgIdentifier: default
   projectIdentifier: Jira
