@@ -1,5 +1,5 @@
 service:
-  name: service1_remote
+name: service1_remote
   identifier: service1_remote
   orgIdentifier: default
   projectIdentifier: Jira
