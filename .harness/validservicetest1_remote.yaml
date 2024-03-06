@@ -3,3 +3,4 @@ service:
   name: validservicetest1_remote
   orgIdentifier: default
   projectIdentifier: Jira
+  description: test
