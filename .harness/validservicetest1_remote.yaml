@@ -1,0 +1,5 @@
+service:
+  name: validservicetest1_remote
+  identifier: validservicetest1_remote
+  orgIdentifier: default
+  projectIdentifier: Jira
