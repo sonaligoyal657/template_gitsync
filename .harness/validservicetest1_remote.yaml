@@ -4,3 +4,8 @@ service:
   orgIdentifier: default
   projectIdentifier: Jira
   description: test
+  serviceDefinition:
+    spec:
+      release:
+        name: release-<+INFRA_KEY_SHORT_ID>
+    type: Kubernetes
