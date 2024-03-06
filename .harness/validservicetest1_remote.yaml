@@ -1,6 +1,6 @@
 service:
   identifier: validservicetest1_remote
-  name: validservicetest1_remote
+name: validservicetest1_remote
   orgIdentifier: default
   projectIdentifier: Jira
   description: test
