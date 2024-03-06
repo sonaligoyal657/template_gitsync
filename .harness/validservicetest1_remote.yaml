@@ -1,11 +1,11 @@
 service:
   identifier: validservicetest1_remote
-name: validservicetest1_remote
-  orgIdentifier: default
-  projectIdentifier: Jira
+  name: validservicetest1_remote
   description: test
   serviceDefinition:
     spec:
       release:
         name: release-<+INFRA_KEY_SHORT_ID>
     type: Kubernetes
+  orgIdentifier: default
+  projectIdentifier: Jira
