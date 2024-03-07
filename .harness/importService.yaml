@@ -1,6 +1,6 @@
 service:
-  name: customsourceservice
-  identifier: customsourceservice
+  name: importService
+  identifier: importService
   orgIdentifier: default
   projectIdentifier: Jira
   serviceDefinition:
