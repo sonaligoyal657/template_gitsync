@@ -1,0 +1,31 @@
+inputSet:
+  name: testMovetogit
+  tags: {}
+  identifier: testMovetogit
+  orgIdentifier: default
+  projectIdentifier: Jira
+  pipeline:
+    identifier: gbfdsadfbghn
+    stages:
+      - stage:
+          identifier: rfed
+          type: Deployment
+          spec:
+            service:
+              serviceInputs:
+                serviceDefinition:
+                  type: Kubernetes
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: artifact1
+                        sources:
+                          - identifier: artifact1
+                            type: DockerRegistry
+                            spec:
+                              imagePath: gtfr
+                              tag: <+input>.executionInput()
+            environment:
+              environmentRef: DESW
+              infrastructureDefinitions:
+                - identifier: testInfra
