@@ -1,0 +1,27 @@
+service:
+  name: customsourceservice
+  identifier: customsourceservice
+  orgIdentifier: default
+  projectIdentifier: Jira
+  serviceDefinition:
+    spec:
+      artifacts:
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - identifier: test1
+              spec:
+                timeout: 1h
+                scripts:
+                  fetchAllArtifacts:
+                    artifactsArrayPath: $.items
+                    versionPath: <+input>
+                    spec:
+                      shell: Bash
+                      source:
+                        spec:
+                          script: "'curl -X GET \"https://nexus3.dev.harness.io/service/rest/v1/components?repository=cdp-qa-automation-1\" -H \"accept: application/json\" > $HARNESS_ARTIFACT_RESULT_PATH'"
+                        type: Inline
+                version: latest
+              type: CustomArtifact
+    type: Ssh
