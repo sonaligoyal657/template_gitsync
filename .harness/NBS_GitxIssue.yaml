@@ -1,0 +1,27 @@
+pipeline:
+  name: NBS_GitxIssue
+  identifier: NBS_GitxIssue
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stg1
+        identifier: stg1
+        tags: {}
+        template:
+          templateRef: stgTemplate_main
+          versionLabel: v1
+          templateInputs:
+            type: Custom
+            spec:
+              execution:
+                steps:
+                  - step:
+                      identifier: ShellScript_1
+                      type: ShellScript
+                      spec:
+                        source:
+                          type: Inline
+                          spec:
+                            script: <+input>
