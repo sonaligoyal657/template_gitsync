@@ -4,3 +4,7 @@ overrides:
       type: String
       value: fredws
       required: false
+    - name: car2
+      type: String
+      value: yhtgr
+      required: false
