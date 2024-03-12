@@ -16,12 +16,15 @@ template:
               identifier: ShellScript_1
               spec:
                 shell: Bash
-                onDelegate: true
                 source:
                   type: Inline
                   spec:
                     script: <+input>
                 environmentVariables: []
                 outputVariables: []
+                executionTarget: {}
+                outputAlias:
+                  key: <+input>
+                  scope: Pipeline
               timeout: 10m
   versionLabel: v1
