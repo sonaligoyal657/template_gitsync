@@ -26,5 +26,6 @@ template:
                 outputAlias:
                   key: <+input>
                   scope: Pipeline
+                delegateSelectors: <+input>
               timeout: 10m
   versionLabel: v1
