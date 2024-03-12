@@ -1,6 +1,5 @@
 service:
-  name: testSvc1
-  identifier: testSvc1
+  name: testSvc1identifier: testSvc1
   serviceDefinition:
     type: Kubernetes
     spec: {}
