@@ -1,8 +1,9 @@
 service:
-  name: testSvc1identifier: testSvc1
+  identifier: testSvc1
+  name: testSvc1
+  gitOpsEnabled: false
   serviceDefinition:
     type: Kubernetes
     spec: {}
-  gitOpsEnabled: false
   orgIdentifier: default
   projectIdentifier: Jira
