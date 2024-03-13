@@ -1,5 +1,14 @@
 service:
   identifier: remoteservucetets
-name: remoteservucetets
+  name: remoteservucetets
+  serviceDefinition:
+    spec:
+      variables:
+        - name: var1
+          type: String
+          description: ""
+          required: false
+          value: <+input>
+    type: Kubernetes
   orgIdentifier: default
   projectIdentifier: Jira
