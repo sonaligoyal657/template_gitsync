@@ -1,0 +1,7 @@
+environment:
+  name: importEnvTest
+  identifier: importEnvTest
+  tags: {}
+  type: PreProduction
+  orgIdentifier: default
+  projectIdentifier: Jira
