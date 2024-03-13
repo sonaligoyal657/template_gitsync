@@ -2,7 +2,7 @@ service:
   identifier: remoteservucetets
   name: remoteservucetets
   serviceDefinition:
-    spec:
+spec:
       variables:
         - name: var1
           type: String
