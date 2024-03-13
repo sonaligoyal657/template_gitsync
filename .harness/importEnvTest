@@ -1,5 +1,0 @@
-environment:
-  name: env1
-  identifier: env1
-  tags: {}
-  type: PreProduction
