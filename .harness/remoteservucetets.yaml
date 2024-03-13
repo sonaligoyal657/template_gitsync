@@ -1,5 +1,5 @@
 service:
   identifier: remoteservucetets
-  name: remoteservucetets
+name: remoteservucetets
   orgIdentifier: default
   projectIdentifier: Jira
