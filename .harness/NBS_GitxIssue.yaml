@@ -25,3 +25,6 @@ pipeline:
                           type: Inline
                           spec:
                             script: <+input>
+                        outputAlias:
+                          key: <+input>
+                        delegateSelectors: <+input>
