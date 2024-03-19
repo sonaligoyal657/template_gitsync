@@ -1,0 +1,5 @@
+service:
+  name: svccreationTest1
+  identifier: svccreationTest1
+  orgIdentifier: default
+  projectIdentifier: Jira
