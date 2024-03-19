@@ -1,0 +1,5 @@
+service:
+  name: svc1
+  identifier: svc1
+  orgIdentifier: default
+  projectIdentifier: Jira
