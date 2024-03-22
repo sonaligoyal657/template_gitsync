@@ -1,0 +1,26 @@
+pipeline:
+  name: redws
+  identifier: redws
+  tags: {}
+  template:
+    templateRef: pipelinedfg
+    versionLabel: vfcd
+    gitBranch: master
+    templateInputs:
+      stages:
+        - stage:
+            identifier: gbvfcd
+            template:
+              templateInputs:
+                type: Deployment
+                spec:
+                  environment:
+                    environmentRef: <+input>
+                    environmentInputs: <+input>
+                    serviceOverrideInputs: <+input>
+                    infrastructureDefinitions: <+input>
+                  service:
+                    serviceRef: <+input>
+                    serviceInputs: <+input>
+  projectIdentifier: Jira
+  orgIdentifier: default
