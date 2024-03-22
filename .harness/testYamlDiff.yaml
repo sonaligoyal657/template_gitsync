@@ -1,0 +1,29 @@
+pipeline:
+  name: testYamldiff
+  identifier: testYamldiff
+  tags: {}
+  template:
+    templateRef: test1234
+    versionLabel: v567
+    templateInputs:
+      stages:
+        - stage:
+            identifier: fdrgh
+            type: Deployment
+            spec:
+              service:
+                serviceRef: <+input>
+                serviceInputs: <+input>
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
+              execution:
+                steps:
+                  - step:
+                      identifier: rolloutDeployment
+                      type: K8sRollingDeploy
+                      timeout: <+input>
+  projectIdentifier: Jira
+  orgIdentifier: default
