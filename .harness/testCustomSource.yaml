@@ -13,8 +13,16 @@ pipeline:
         spec:
           deploymentType: Kubernetes
           service:
-            serviceRef: <+input>
-            serviceInputs: <+input>
+            serviceRef: customsourceservice
+            serviceInputs:
+              serviceDefinition:
+                type: Ssh
+                spec:
+                  artifacts:
+                    primary:
+                      primaryArtifactRef: <+input>
+                      sources: <+input>
+            gitBranch: main_test
           environment:
             environmentRef: <+input>
             deployToAll: false
