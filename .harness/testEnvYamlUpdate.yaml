@@ -1,7 +1,8 @@
 environment:
   name: testEnvYamlUpdate
   identifier: testEnvYamlUpdate
-  accountId: px7xd_BFRCi-pfWPYXVjvw
+  tags:
+    abc: test
+  type: PreProduction
   orgIdentifier: default
   projectIdentifier: Jira
-  type: PreProduction
