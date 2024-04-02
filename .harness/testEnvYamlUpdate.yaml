@@ -2,6 +2,6 @@ environment:
 name: testEnvYamlUpdate
 identifier: testEnvYamlUpdate
   tags: {}
-  type: PreProduction
+  type: []
   orgIdentifier: default
   projectIdentifier: Jira
