@@ -1,6 +1,6 @@
 environment:
-  name: testEnvYamlUpdate
-  identifier: testEnvYamlUpdate
+name: testEnvYamlUpdate
+identifier: testEnvYamlUpdate
   tags: {}
   type: PreProduction
   orgIdentifier: default
