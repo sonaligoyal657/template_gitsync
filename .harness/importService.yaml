@@ -20,7 +20,7 @@ service:
                       shell: Bash
                       source:
                         spec:
-                          script: <+input>
+                          script: "curl -X GET \"https://nexus3.dev.harness.io/service/rest/v1/components?repository=cdp-qa-automation-1\" -H \"accept: application/json\" > $HARNESS_ARTIFACT_RESULT_PATH"
                         type: Inline
                 version: <+input>
               type: CustomArtifact
