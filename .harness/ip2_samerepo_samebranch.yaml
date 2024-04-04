@@ -1,0 +1,53 @@
+inputSet:
+  name: ip2_samerepo_samebranch
+  identifier: ip2_samerepo_samebranch
+  orgIdentifier: default
+  projectIdentifier: Jira
+  pipeline:
+    identifier: ip_customerissue_featurebranch
+    stages:
+      - stage:
+          identifier: stg1
+          type: Deployment
+          spec:
+            service:
+              serviceRef: customsourceservice
+              serviceInputs:
+                serviceDefinition:
+                  type: Ssh
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: test1
+                        sources:
+                          - identifier: test1
+                            type: CustomArtifact
+                            spec:
+                              version: <+input>
+              gitBranch: main_test
+            environment:
+              environmentRef: KubernetesEnvdemo
+              infrastructureDefinitions:
+                - identifier: kubernetsInfraDemo
+      - stage:
+          identifier: stg2
+          template:
+            templateInputs:
+              type: Deployment
+              spec:
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+                service:
+                  serviceRef: customsourceservice
+                  serviceInputs:
+                    serviceDefinition:
+                      type: Ssh
+                      spec:
+                        artifacts:
+                          primary:
+                            primaryArtifactRef: <+input>
+                            sources: <+input>
+                  gitBranch: main_test
