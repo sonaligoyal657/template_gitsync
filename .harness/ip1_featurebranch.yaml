@@ -1,0 +1,31 @@
+inputSet:
+  name: ip1_featurebranch
+  identifier: ip1_featurebranch
+  orgIdentifier: default
+  projectIdentifier: Jira
+  pipeline:
+    identifier: ip_customerissue_featurebranch
+    stages:
+      - stage:
+          identifier: stg1
+          type: Deployment
+          spec:
+            service:
+              serviceRef: customsourceservice
+              serviceInputs:
+                serviceDefinition:
+                  type: Ssh
+                  spec:
+                    artifacts:
+                      primary:
+                        primaryArtifactRef: test1
+                        sources:
+                          - identifier: test1
+                            type: CustomArtifact
+                            spec:
+                              version: <+input>.executionInput()
+              gitBranch: main_test
+            environment:
+              environmentRef: KubernetesEnvdemo
+              infrastructureDefinitions:
+                - identifier: kubernetsInfraDemo
