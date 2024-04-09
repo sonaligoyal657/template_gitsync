@@ -24,11 +24,15 @@ pipeline:
                       sources: <+input>
             gitBranch: main_test
           environment:
-            environmentRef: <+input>
+            environmentRef: KubernetesEnvdemo
             deployToAll: false
-            environmentInputs: <+input>
-            serviceOverrideInputs: <+input>
-            infrastructureDefinitions: <+input>
+            infrastructureDefinitions:
+              - identifier: testInlineInfraadd
+                inputs:
+                  identifier: testInlineInfraadd
+                  type: KubernetesDirect
+                  spec:
+                    connectorRef: <+input>
           execution:
             steps:
               - step:
