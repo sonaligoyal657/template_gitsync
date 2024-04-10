@@ -12,8 +12,14 @@ pipeline:
             type: Deployment
             spec:
               service:
-                serviceRef: <+input>
-                serviceInputs: <+input>
+                serviceInputs:
+                  serviceDefinition:
+                    type: Kubernetes
+                    spec:
+                      artifacts:
+                        primary:
+                          primaryArtifactRef: <+input>
+                          sources: <+input>
               environment:
                 environmentRef: <+input>
                 environmentInputs: <+input>
