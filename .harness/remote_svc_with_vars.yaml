@@ -3,3 +3,19 @@ service:
   identifier: remote_svc_with_vars
   orgIdentifier: default
   projectIdentifier: Jira
+  serviceDefinition:
+    spec:
+      release:
+        name: release-<+INFRA_KEY_SHORT_ID>
+      variables:
+        - name: remotevar1
+          type: String
+          description: ""
+          required: false
+          value: <+input>
+        - name: remotevar2
+          type: Secret
+          description: ""
+          required: false
+          value: <+input>
+    type: Kubernetes
