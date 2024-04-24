@@ -3,3 +3,8 @@ service:
   identifier: remote_svc_with_var_non_default
   orgIdentifier: default
   projectIdentifier: Jira
+  serviceDefinition:
+    spec:
+      release:
+        name: release-<+INFRA_KEY_SHORT_ID>
+    type: Kubernetes
