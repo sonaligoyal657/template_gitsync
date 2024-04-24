@@ -1,0 +1,5 @@
+service:
+  name: remote svc with var non default
+  identifier: remote_svc_with_var_non_default
+  orgIdentifier: default
+  projectIdentifier: Jira
