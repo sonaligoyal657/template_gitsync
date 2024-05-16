@@ -1,0 +1,20 @@
+inputSet:
+  name: ip1_testcfd
+  identifier: ip1_testcfd
+  orgIdentifier: default
+  projectIdentifier: Jira
+  pipeline:
+    identifier: pipeline1_test1
+    stages:
+      - stage:
+          identifier: stg1
+          type: Deployment
+          spec:
+            service:
+              serviceRef: <+input>
+              serviceInputs: <+input>
+            environment:
+              environmentRef: <+input>
+              environmentInputs: <+input>
+              serviceOverrideInputs: <+input>
+              infrastructureDefinitions: <+input>
