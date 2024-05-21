@@ -46,3 +46,23 @@ pipeline:
                 - AllErrors
               action:
                 type: StageRollback
+    - stage:
+        name: stg2
+        identifier: stg2
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ServiceNowCreate
+                  name: ServiceNowCreate_1
+                  identifier: ServiceNowCreate_1
+                  spec:
+                    connectorRef: account.service_now_test
+                    ticketType: change_task
+                    fields: []
+                    templateName: Change_task_template_automation2
+                    createType: Form
+                  timeout: 10m
+        tags: {}
