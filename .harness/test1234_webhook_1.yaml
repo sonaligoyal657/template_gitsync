@@ -1,0 +1,30 @@
+pipeline:
+  name: test1234_webhook_1
+  identifier: test1234_webhook_1
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  stages:
+    - stage:
+        name: stg1
+        identifier: stg1
+        description: ""
+        type: Custom
+        spec:
+          execution:
+            steps:
+              - step:
+                  type: ShellScript
+                  name: ShellScript_1
+                  identifier: ShellScript_1
+                  spec:
+                    shell: Bash
+                    executionTarget: {}
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
+                    environmentVariables: []
+                    outputVariables: []
+                  timeout: 10m
+        tags: {}
