@@ -13,8 +13,32 @@ pipeline:
         spec:
           deploymentType: Kubernetes
           service:
-            serviceRef: <+input>
-            serviceInputs: <+input>
+            serviceRef: jikk
+            serviceInputs:
+              serviceDefinition:
+                type: Kubernetes
+                spec:
+                  manifests:
+                    - manifest:
+                        identifier: m1
+                        type: K8sManifest
+                        spec:
+                          store:
+                            type: Github
+                            spec:
+                              connectorRef: <+input>
+                              paths: <+input>
+                          skipResourceVersioning: <+input>
+                  artifacts:
+                    sidecars:
+                      - sidecar:
+                          identifier: template1
+                          template:
+                            templateInputs:
+                              type: CustomArtifact
+                              spec:
+                                version: <+input>
+            gitBranch: main
           environment:
             environmentRef: <+input>
             deployToAll: false
