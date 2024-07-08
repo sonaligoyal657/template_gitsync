@@ -1,5 +1,12 @@
 service:
-  name: "hellou"
-  identifier: "jikk"
-  description: "dejkk"
+  name: hellou
+  identifier: jikk
+  description: dejkk
   tags: {}
+  serviceDefinition:
+    spec:
+      release:
+        name: release-<+INFRA_KEY_SHORT_ID>
+    type: Kubernetes
+  orgIdentifier: default
+  projectIdentifier: Jira
