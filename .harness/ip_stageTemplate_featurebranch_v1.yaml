@@ -17,8 +17,8 @@ template:
         serviceOverrideInputs: <+input>
         infrastructureDefinitions: <+input>
       service:
-        serviceRef: <+input>
-        serviceInputs: <+input>
+        serviceRef: jikk
+        gitBranch: main
       execution:
         steps:
           - step:
