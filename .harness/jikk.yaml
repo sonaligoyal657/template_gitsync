@@ -22,6 +22,18 @@ service:
                   branch: branch-main-test
               skipResourceVersioning: <+input>
               enableDeclarativeRollback: false
-    type: NativeHelm
+      artifacts:
+        sidecars:
+          - sidecar:
+              name: template1
+              identifier: template1
+              template:
+                templateRef: testCustomArtifactSource
+                versionLabel: v1
+                templateInputs:
+                  type: CustomArtifact
+                  spec:
+                    version: <+input>
+    type: Kubernetes
   orgIdentifier: default
   projectIdentifier: Jira
