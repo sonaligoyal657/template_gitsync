@@ -7,6 +7,21 @@ service:
     spec:
       release:
         name: release-<+INFRA_KEY_SHORT_ID>
+      manifests:
+        - manifest:
+            identifier: m1
+            type: K8sManifest
+            spec:
+              store:
+                type: Github
+                spec:
+                  connectorRef: <+input>
+                  gitFetchType: Branch
+                  paths: <+input>
+                  repoName: repo1
+                  branch: branch-main-test
+              skipResourceVersioning: false
+              enableDeclarativeRollback: false
     type: Kubernetes
   orgIdentifier: default
   projectIdentifier: Jira
