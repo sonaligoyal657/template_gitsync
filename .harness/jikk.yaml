@@ -1,0 +1,5 @@
+service:
+  name: "hellou"
+  identifier: "jikk"
+  description: "dejkk"
+  tags: {}
