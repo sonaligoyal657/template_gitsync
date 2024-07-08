@@ -20,7 +20,7 @@ service:
                   paths: <+input>
                   repoName: repo1
                   branch: branch-main-test
-              skipResourceVersioning: false
+              skipResourceVersioning: <+input>
               enableDeclarativeRollback: false
     type: Kubernetes
   orgIdentifier: default
