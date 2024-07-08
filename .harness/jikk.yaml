@@ -22,6 +22,6 @@ service:
                   branch: branch-main-test
               skipResourceVersioning: <+input>
               enableDeclarativeRollback: false
-    type: Kubernetes
+    type: NativeHelm
   orgIdentifier: default
   projectIdentifier: Jira
