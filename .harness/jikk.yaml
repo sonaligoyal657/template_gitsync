@@ -34,6 +34,19 @@ service:
                   type: CustomArtifact
                   spec:
                     version: <+input>
+        primary:
+          primaryArtifactRef: <+input>
+          sources:
+            - name: customtesting1
+              identifier: customtesting1
+              template:
+                templateRef: testCustomArtifactSource
+                versionLabel: v1
+                templateInputs:
+                  type: CustomArtifact
+                  spec:
+                    timeout: <+input>
+                    version: <+input>
     type: Kubernetes
   orgIdentifier: default
   projectIdentifier: Jira
