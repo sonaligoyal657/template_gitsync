@@ -22,6 +22,15 @@ service:
                   branch: branch-main-test
               skipResourceVersioning: <+input>
               enableDeclarativeRollback: false
+        - manifest:
+            identifier: tgfds
+            type: Values
+            spec:
+              store:
+                type: Harness
+                spec:
+                  files:
+                    - account:/test12
       artifacts:
         sidecars:
           - sidecar:
