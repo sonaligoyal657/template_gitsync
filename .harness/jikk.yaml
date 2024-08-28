@@ -1,6 +1,6 @@
 service:
   name: hellou
-  identifier: jikk
+  identifier: hellou
   description: dejkk
   tags: {}
   serviceDefinition:
