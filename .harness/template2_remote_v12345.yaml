@@ -8,8 +8,15 @@ template:
     spec:
       deploymentType: Kubernetes
       service:
-        serviceRef: <+input>
-        serviceInputs: <+input>
+        serviceRef: demo1234
+        serviceInputs:
+          serviceDefinition:
+            type: Kubernetes
+            spec:
+              artifacts:
+                primary:
+                  primaryArtifactRef: <+input>
+                  sources: <+input>
       environment:
         environmentRef: <+input>
         deployToAll: false
