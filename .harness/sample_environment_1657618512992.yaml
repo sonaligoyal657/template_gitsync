@@ -3,7 +3,7 @@ environment:
   identifier: sample_environment_1657618512992
   description: ""
   tags: {}
-  type: PreProduction
+  type: Production
   orgIdentifier: default
   projectIdentifier: Jira
   overrides:
