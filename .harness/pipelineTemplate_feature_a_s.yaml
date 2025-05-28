@@ -24,4 +24,23 @@ template:
                   serviceOverrideInputs: <+input>
                   infrastructureDefinitions: <+input>
                 services:
-                  values: <+input>
+                  values:
+                    - serviceRef: s1_newbranch
+                      serviceInputs:
+                        serviceDefinition:
+                          type: Kubernetes
+                          spec:
+                            manifests:
+                              - manifest:
+                                  identifier: m234
+                                  type: K8sManifest
+                                  spec:
+                                    store:
+                                      type: Git
+                                      spec:
+                                        connectorRef: <+input>
+                            artifacts:
+                              primary:
+                                primaryArtifactRef: <+input>
+                                sources: <+input>
+                      gitBranch: master-patch
