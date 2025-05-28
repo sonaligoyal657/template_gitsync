@@ -13,14 +13,13 @@ pipeline:
               templateInputs:
                 type: Deployment
                 spec:
-                  service:
-                    serviceRef: <+input>
-                    serviceInputs: <+input>
                   environment:
                     environmentRef: <+input>
                     environmentInputs: <+input>
                     serviceOverrideInputs: <+input>
                     infrastructureDefinitions: <+input>
+                  services:
+                    values: <+input>
   tags: {}
   projectIdentifier: Jira
   orgIdentifier: default
