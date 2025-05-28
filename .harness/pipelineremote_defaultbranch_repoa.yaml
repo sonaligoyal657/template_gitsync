@@ -8,35 +8,19 @@ pipeline:
     templateInputs:
       stages:
         - stage:
-            identifier: stg_diffrepo_diffbrnach
+            identifier: stg1
             template:
               templateInputs:
-                type: Custom
+                type: Deployment
                 spec:
-                  execution:
-                    steps:
-                      - step:
-                          identifier: ShellScript_1
-                          type: ShellScript
-                          spec:
-                            source:
-                              type: Inline
-                              spec:
-                                script: <+input>
-        - stage:
-            identifier: fd
-            type: Custom
-            spec:
-              execution:
-                steps:
-                  - step:
-                      identifier: step_samerepo_diffbvranch
-                      template:
-                        templateInputs:
-                          type: Email
-                          spec:
-                            to: <+input>
-                            body: <+input>
+                  service:
+                    serviceRef: <+input>
+                    serviceInputs: <+input>
+                  environment:
+                    environmentRef: <+input>
+                    environmentInputs: <+input>
+                    serviceOverrideInputs: <+input>
+                    infrastructureDefinitions: <+input>
   tags: {}
   projectIdentifier: Jira
   orgIdentifier: default
