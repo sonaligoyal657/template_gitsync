@@ -19,7 +19,25 @@ pipeline:
                     serviceOverrideInputs: <+input>
                     infrastructureDefinitions: <+input>
                   services:
-                    values: <+input>
+                    values:
+                      - serviceInputs:
+                          serviceDefinition:
+                            type: Kubernetes
+                            spec:
+                              manifests:
+                                - manifest:
+                                    identifier: m234
+                                    type: K8sManifest
+                                    spec:
+                                      store:
+                                        type: Git
+                                        spec:
+                                          connectorRef: <+input>
+                              artifacts:
+                                primary:
+                                  primaryArtifactRef: <+input>
+                                  sources: <+input>
+                        serviceRef: s1_newbranch
   tags: {}
   projectIdentifier: Jira
   orgIdentifier: default
