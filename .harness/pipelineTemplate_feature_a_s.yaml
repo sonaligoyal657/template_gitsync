@@ -9,12 +9,12 @@ template:
   spec:
     stages:
       - stage:
-          name: stg1
-          identifier: stg1
+          name: stg1_samerepo_samebranch
+          identifier: stg1_samerepo_samebranch
+          tags: {}
           template:
-            templateRef: stagetestmain
-            versionLabel: g7
-            gitBranch: main
+            templateRef: ip_stageTemplate_featurebranch
+            versionLabel: v1
             templateInputs:
               type: Deployment
               spec:
@@ -23,24 +23,18 @@ template:
                   environmentInputs: <+input>
                   serviceOverrideInputs: <+input>
                   infrastructureDefinitions: <+input>
-                services:
-                  values:
-                    - serviceRef: s1_newbranch
-                      serviceInputs:
-                        serviceDefinition:
-                          type: Kubernetes
-                          spec:
-                            manifests:
-                              - manifest:
-                                  identifier: m234
-                                  type: K8sManifest
+                service:
+                  serviceInputs:
+                    serviceDefinition:
+                      type: Kubernetes
+                      spec:
+                        manifests:
+                          - manifest:
+                              identifier: m1
+                              type: K8sManifest
+                              spec:
+                                store:
+                                  type: Github
                                   spec:
-                                    store:
-                                      type: Git
-                                      spec:
-                                        connectorRef: <+input>
-                            artifacts:
-                              primary:
-                                primaryArtifactRef: <+input>
-                                sources: <+input>
-                      gitBranch: master-patch
+                                    connectorRef: <+input>
+                                    paths: <+input>
