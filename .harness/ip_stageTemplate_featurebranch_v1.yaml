@@ -17,35 +17,8 @@ template:
         serviceOverrideInputs: <+input>
         infrastructureDefinitions: <+input>
       service:
-        serviceRef: jikk
-        serviceInputs:
-          serviceDefinition:
-            type: Kubernetes
-            spec:
-              manifests:
-                - manifest:
-                    identifier: m1
-                    type: K8sManifest
-                    spec:
-                      store:
-                        type: Github
-                        spec:
-                          connectorRef: <+input>
-                          paths: <+input>
-                      skipResourceVersioning: <+input>
-              artifacts:
-                sidecars:
-                  - sidecar:
-                      identifier: template1
-                      template:
-                        templateInputs:
-                          type: CustomArtifact
-                          spec:
-                            version: <+input>
-                primary:
-                  primaryArtifactRef: <+input>
-                  sources: <+input>
-        gitBranch: main
+        serviceRef: <+input>
+        serviceInputs: <+input>
       execution:
         steps:
           - step:
@@ -56,6 +29,12 @@ template:
               spec:
                 skipDryRun: false
                 pruningEnabled: false
+          - step:
+              type: Wait
+              name: Wait_1
+              identifier: Wait_1
+              spec:
+                duration: <+input>
         rollbackSteps:
           - step:
               name: Rollback Rollout Deployment
