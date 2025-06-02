@@ -32,6 +32,19 @@ template:
                         spec:
                           connectorRef: <+input>
                           paths: <+input>
+                      skipResourceVersioning: <+input>
+              artifacts:
+                sidecars:
+                  - sidecar:
+                      identifier: template1
+                      template:
+                        templateInputs:
+                          type: CustomArtifact
+                          spec:
+                            version: <+input>
+                primary:
+                  primaryArtifactRef: <+input>
+                  sources: <+input>
         gitBranch: main
       execution:
         steps:
