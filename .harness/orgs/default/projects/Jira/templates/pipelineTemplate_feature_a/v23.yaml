@@ -1,0 +1,58 @@
+template:
+  name: pipelineTemplate_feature_a
+  identifier: pipelineTemplate_feature_a
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1_samerepo_samebranch
+          identifier: stg1_samerepo_samebranch
+          tags: {}
+          template:
+            templateRef: ip_stageTemplate_featurebranch
+            versionLabel: v1
+            templateInputs:
+              type: Deployment
+              spec:
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                execution:
+                  steps:
+                    - step:
+                        identifier: Wait_1
+                        type: Wait
+                        spec:
+                          duration: <+input>
+      - stage:
+          name: stg2
+          identifier: stg2
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: ShellScript
+                    name: ShellScript_1
+                    identifier: ShellScript_1
+                    spec:
+                      shell: Bash
+                      executionTarget: {}
+                      source:
+                        type: Inline
+                        spec:
+                          script: fred3w
+                      environmentVariables: []
+                      outputVariables: []
+                    timeout: 10m
+          tags: {}
+  versionLabel: v23
