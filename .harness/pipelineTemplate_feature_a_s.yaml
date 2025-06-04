@@ -33,3 +33,30 @@ template:
                         type: Wait
                         spec:
                           duration: <+input>
+      - stage:
+          name: stg2_samerepo_diffbranch
+          identifier: stg2_samerepo_diffbranch
+          tags: {}
+          template:
+            templateRef: ip_stageTemplate_featurebranch
+            versionLabel: v4
+            gitBranch: amit_test
+            templateInputs:
+              type: Deployment
+              spec:
+                environment:
+                  environmentRef: <+input>
+                  environmentInputs: <+input>
+                  serviceOverrideInputs: <+input>
+                  infrastructureDefinitions: <+input>
+                service:
+                  serviceRef: <+input>
+                  serviceInputs: <+input>
+                  failureStrategies: <+input>
+                execution:
+                  steps:
+                    - step:
+                        identifier: Wait_1
+                        type: Wait
+                        spec:
+                          duration: <+input>
