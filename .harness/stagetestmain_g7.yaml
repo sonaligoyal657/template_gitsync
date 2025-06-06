@@ -26,6 +26,19 @@ template:
               spec:
                 skipDryRun: false
                 pruningEnabled: false
+          - step:
+              name: steptemplate1
+              identifier: steptemplate1
+              template:
+                templateRef: step_template_main
+                versionLabel: v56
+                templateInputs:
+                  type: ShellScript
+                  spec:
+                    source:
+                      type: Inline
+                      spec:
+                        script: echo 'hello'
         rollbackSteps:
           - step:
               name: Rollback Rollout Deployment
