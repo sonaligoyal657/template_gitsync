@@ -1,0 +1,24 @@
+pipeline:
+  name: DefaultBranchPipeline_cypressTestUseCase
+  identifier: DefaultBranchPipeline_cypressTestUseCase
+  tags: {}
+  projectIdentifier: Jira
+  orgIdentifier: default
+  stages:
+    - stage:
+        name: stg1
+        identifier: stg1
+        tags: {}
+        template:
+          templateRef: stagetestmain
+          versionLabel: g7
+          templateInputs:
+            type: Deployment
+            spec:
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
+              services:
+                values: <+input>
