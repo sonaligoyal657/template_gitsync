@@ -71,3 +71,27 @@ pipeline:
                       type: Wait
                       spec:
                         duration: <+input>
+    - stage:
+        name: stg3
+        identifier: stg3
+        tags: {}
+        template:
+          templateRef: stg1_nested
+          versionLabel: v1
+          templateInputs:
+            type: Deployment
+            spec:
+              environment:
+                environmentRef: <+input>
+                environmentInputs: <+input>
+                serviceOverrideInputs: <+input>
+                infrastructureDefinitions: <+input>
+              service:
+                serviceInputs:
+                  serviceDefinition:
+                    type: Kubernetes
+                    spec:
+                      artifacts:
+                        primary:
+                          primaryArtifactRef: <+input>
+                          sources: <+input>
