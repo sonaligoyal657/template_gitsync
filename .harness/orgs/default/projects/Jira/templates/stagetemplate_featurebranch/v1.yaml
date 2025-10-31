@@ -1,0 +1,26 @@
+template:
+  name: stagetemplate_featurebranch
+  identifier: stagetemplate_featurebranch
+  versionLabel: v1
+  type: Stage
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              name: step1
+              identifier: step1
+              template:
+                templateRef: steptemplate_samebranch_of_stagetemplate
+                versionLabel: v1
+                templateInputs:
+                  type: ShellScript
+                  spec:
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
