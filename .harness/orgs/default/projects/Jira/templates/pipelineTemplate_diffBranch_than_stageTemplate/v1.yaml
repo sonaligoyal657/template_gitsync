@@ -1,0 +1,33 @@
+template:
+  name: pipelineTemplate_diffBranch_than_stageTemplate
+  identifier: pipelineTemplate_diffBranch_than_stageTemplate
+  versionLabel: v1
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          tags: {}
+          template:
+            templateRef: stagetemplate_featurebranch
+            versionLabel: v1
+            gitBranch: main_test
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: step1
+                        template:
+                          templateInputs:
+                            type: ShellScript
+                            spec:
+                              source:
+                                type: Inline
+                                spec:
+                                  script: <+input>
