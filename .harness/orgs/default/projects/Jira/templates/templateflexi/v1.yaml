@@ -17,6 +17,7 @@ template:
               template:
                 templateRef: steptemplate_samebranch_of_stagetemplate
                 versionLabel: v1
+                branch: main_test
                 templateInputs:
                   type: ShellScript
                   spec:
