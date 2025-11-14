@@ -1,0 +1,26 @@
+template:
+  name: template-flexi
+  identifier: templateflexi
+  versionLabel: v1
+  type: Stage
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    type: Custom
+    spec:
+      execution:
+        steps:
+          - step:
+              name: test
+              identifier: test
+              template:
+                templateRef: steptemplate_samebranch_of_stagetemplate
+                versionLabel: v1
+                templateInputs:
+                  type: ShellScript
+                  spec:
+                    source:
+                      type: Inline
+                      spec:
+                        script: <+input>
