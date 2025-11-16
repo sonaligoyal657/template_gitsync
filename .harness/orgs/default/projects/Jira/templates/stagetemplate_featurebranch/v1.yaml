@@ -16,7 +16,6 @@ template:
               identifier: step1
               template:
                 templateRef: steptemplate_samebranch_of_stagetemplate
-                gitBranch: main_test
                 versionLabel: v1
                 templateInputs:
                   type: ShellScript
