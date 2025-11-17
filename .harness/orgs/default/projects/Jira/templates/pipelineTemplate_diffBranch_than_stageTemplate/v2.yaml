@@ -55,4 +55,19 @@ template:
                               type: ShellScript
                               timeout: <+input>
           tags: {}
+      - stage:
+          name: stg2
+          identifier: stg2
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - step:
+                    type: Wait
+                    name: Wait_1
+                    identifier: Wait_1
+                    spec:
+                      duration: 10m
+          tags: {}
   versionLabel: v2
