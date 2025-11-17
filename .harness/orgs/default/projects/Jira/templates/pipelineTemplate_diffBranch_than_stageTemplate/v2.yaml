@@ -1,0 +1,58 @@
+template:
+  name: pipelineTemplate_diffBranch_than_stageTemplate
+  identifier: pipelineTemplate_diffBranch_than_stageTemplate
+  type: Pipeline
+  projectIdentifier: Jira
+  orgIdentifier: default
+  tags: {}
+  spec:
+    stages:
+      - stage:
+          name: stg1
+          identifier: stg1
+          tags: {}
+          template:
+            templateRef: stagetemplate_featurebranch
+            versionLabel: v1
+            gitBranch: main_test
+            templateInputs:
+              type: Custom
+              spec:
+                execution:
+                  steps:
+                    - step:
+                        identifier: step1
+                        template:
+                          templateInputs:
+                            type: ShellScript
+                            spec:
+                              source:
+                                type: Inline
+                                spec:
+                                  script: <+input>
+      - stage:
+          name: stg
+          identifier: stg
+          description: ""
+          type: Custom
+          spec:
+            execution:
+              steps:
+                - stepGroup:
+                    name: dummyTemp
+                    identifier: dummyTemp
+                    template:
+                      templateRef: org.Hello_Word_Group
+                      versionLabel: V1
+                      templateInputs:
+                        steps:
+                          - step:
+                              identifier: ShellScript_1
+                              type: ShellScript
+                              timeout: <+input>
+                          - step:
+                              identifier: ShellScript_2
+                              type: ShellScript
+                              timeout: <+input>
+          tags: {}
+  versionLabel: v2
